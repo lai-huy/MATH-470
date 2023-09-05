@@ -1,55 +1,16 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
-\usepackage{times}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{latexsym}
-\usepackage{fullpage}
-\usepackage[shortlabels]{enumitem}
-\usepackage[utf8]{inputenc}
-\usepackage{hyperref}
-\usepackage{fancyvrb}
-\usepackage{minted}
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage[affil-it]{authblk}
-\usepackage[headsep=14pt,headheight=14pt]{geometry}
-
-\hypersetup{
-    pdftitle={Problem Set I}
-}
-
-\setlength{\parskip}{.1in}
-\setlength{\headheight}{15pt}
-\setlength{\topmargin}{0pt}
-
-\pagestyle{fancy}
-\lhead{MATH 470: Communications and Cryptography}
-\rhead{Texas A\&M University}
-\cfoot{\thepage}
-
-\title{\vspace{-2.5cm}Homework I}
-\author{\vspace{-0.2cm} Huy Quang Lai\\132000359}
-\affil{Texas A\&M University}
-\date{\vspace{-0.5cm}30 August 2022}
+\input{hw-preamble}
 
 \begin{document}
-\maketitle
+\hw{1}{30 August 2023}
+\thispagestyle{empty}
+\problem Decode the following Caesar cipher:
 \begin{center}
-\rule{\textwidth}{.1pt}
-{\large
-An Aggie does not lie, cheat or steal.\\
-Nor does an Aggie tolerate those who do.
-}
+EREKK MIHSI WRSXP MIGLI EXSVW XIEPS VXSPI VEXIX LSWIA LSHS
 \end{center}
 
-\section*{Problem 1}
-Encrypted Text:\\
-EREKK MIHSI WRSXP MIGLI EXSVW XIEPS VXSPI VEXIX LSWIA LSHS
-
-\noindent
-Decrypted Text:\\
+\solution
 A shift of the encoded message by $4\leftarrow$ or by $22\rightarrow$ would decode the message\\
 ANAGG IEDOE SNOTL IECHE ATORS TEALO RTOLE RATET HOSEW HODO
 
@@ -57,13 +18,34 @@ ANAGG IEDOE SNOTL IECHE ATORS TEALO RTOLE RATET HOSEW HODO
 This message can be further parsed into the following:\\
 An Aggie does not lie cheat or steal or tolerate those who do
 
-\section*{Problem 2}
-Raw Text: ``The gold is hidden in the garden"\\
-Encrypted Text: ``IBXFE PAQLB QAAXW QWIBX FSVAX W"
+\problem Encrypt the plaintext message using the subsitution encryption table
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        A & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z \\
+        \hline
+        S & C & J & A & X & U & F & B & Q & K & T & P & R & W & E & Z & H & V & L & I & G & Y & D & N & M & O \\
+        \hline
+    \end{tabular}
+    \caption{Simple substitution encryption table}
+\end{table}
 
-\section*{Problem 3}
+\noindent
+Plain Text:
+\begin{center}
+The gold is hidden in the garden
+\end{center}
+
+\solution
+``IBXFE PAQLB QAAXW QWIBX FSVAX W"
+
+\newpage
+\problem Let $a,b,c\in\mathbb{Z}$. Use the definition of divisibility to directly prove that if $a|b$ and $b|a$, then $a=\pm b$.
+
+\solution 
+Prove that if $a|b$ and $b|a$, then $a=\pm b$
 \begin{proof}
-Prove that if $a|b$ and $b|a$, then $a=\pm b$\\
 By definition $\exists x,y\in\mathbb{Z}$ such that $a=bx$ and $b=ay$\\
 $a = bx \Rightarrow a = ayx$\\
 Dividing both sides by $a$ results in:\\
@@ -75,8 +57,9 @@ Using this result in the equation for $a$ gives:\\
 $a=\pm b$
 \end{proof}
 
-\newpage
-\section*{Problem 4}
+\problem Use the Euclidean algorithm to compute the greatest common divisor of 291 and 252.
+
+\solution
 $\gcd(291,252)$
 \begin{flalign*}
 292 &= 1*252+40 &\\
@@ -86,10 +69,14 @@ $\gcd(291,252)$
 \end{flalign*}
 $\gcd(291,252)=3$
 
-\section*{Problem 5}
-\subsection*{Part a}
+\newpage
+\problem Let $a$ and $b$ be positive integers.
+
+\subproblem Suppose that there are integers $u$ and $v$ satisfying $au+bv=1$. Prove that $\gcd(a,b)=1$.
+
+\solution Prove that $\gcd(a,b)=1$.
 \begin{proof}
-Suppose that there are integers $u$ and $v$ satisfying $au+bv=1$. Prove that $gcd(a,b)=1$\\
+Suppose that there are integers $u$ and $v$ satisfying $au+bv=1$. Prove that $\gcd(a,b)=1$\\
 Let $g=\gcd(a,b)$. Then $\exists x,y\in\mathbb{Z}$ such that $a=gx\land b=gy$\\
 Substituting this into the given equation $au+bv=1$ results in:
 \[
@@ -103,11 +90,9 @@ $g|1$\\
 This requires that $g=1$.
 \end{proof}
 
-\newpage
-\subsection*{Part b}
-Suppose that there are integers $u$ and $v$ satisfying $au+bv=6$. Is it necessarily true that $\gcd(a,b)=6$? If not, give a specific counterexample, and describe in general all of the possible values of $\gcd(a,b)$?
+\subproblem Suppose that there are integers $u$ and $v$ satisfying $au+bv=6$. Is it necessarily true that $\gcd(a,b)=6$? If not, give a specific counterexample, and describe in general all of the possible values of $\gcd(a,b)$?
 
-\noindent
+\solution
 $au+bv=6$ does not imply that $\gcd(a,b)=6$.\\
 Counterexample: $a=3,b=2$
 \[a\cdot(6)+b\cdot(-6)=6\]
@@ -126,7 +111,13 @@ Rearranging this statement results in:
 The left hand side is divisible by $g$ since $\gcd(a,b)=g$. Therefore, $g|r$. But the only $r$ that can satisfy both $0\leq r < g$ and $g|r$ is $r=0$. This results in $c=gq$. This implies that $\gcd(a,b)|c$
 
 \newpage
-\section*{Problem 6}
+\problem Find the gcd of the following two numbers:
+\begin{flalign*}
+a &= 1234567890123456789012345678901234567890123456789012345678901234567890123456789 \\
+b &= 234567890123456789012345678901234567890123456789012345678901234567890123456789
+\end{flalign*}
+
+\solution
 \begin{minted}{python}
 def gcd(a: int, b: int):
     if a == 0:

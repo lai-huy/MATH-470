@@ -1,0 +1,63 @@
+\usepackage[affil-it]{authblk}
+\usepackage[shortlabels]{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithm, algorithmicx, algpseudocode}
+\usepackage{amsfonts, amsthm, amsmath, amssymb}
+\usepackage{color}
+\usepackage{cancel, textcomp}
+\usepackage{enumerate}
+\usepackage[mathscr]{euscript}
+\usepackage{fancyhdr, fancyvrb}
+\usepackage{fullpage}
+\usepackage[left=0.5in,right=0.5in,headsep=0.5in,headheight=0.5in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{latexsym}
+\usepackage{mathtools}
+\usepackage{minted}
+\usepackage{times}
+\usepackage{xcolor}
+\usepackage{physics}
+\usepackage{tikz-cd}
+\usepackage[warnunknown, fasterrors, mathletters]{ucs}
+\usepackage[nointegrals]{wasysym}
+
+\newcommand{\hw}[2]{
+    \noindent
+    \begin{center}
+        \framebox{
+            \vbox{
+                \hbox to 7in { {\bf MATH 470: Communications and Cryptography } \hfill  }
+                \vspace{2mm}
+                \hbox to 7in { {\Large \hfill Homework #1\hfill} }
+                \vspace{2mm}
+                \hbox to 7in { {\it Due date: #2 \hfill Name: Huy Lai } }
+            }
+        }
+    \end{center}
+    \vspace*{4mm}
+}
+
+\newcounter{prob}
+\setcounter{prob}{0}
+\newcounter{subprob}
+\setcounter{subprob}{0}
+
+\newcommand{\problem}{\setcounter{subprob}{0}\stepcounter{prob}{\noindent\textbf{Problem \theprob.}}\ }
+\newcommand{\subproblem}{\stepcounter{subprob}{\noindent\textbf{Subproblem \thesubprob.}}\ }
+\newcommand{\solution}{\noindent\textbf{Solution:}\newline}
+
+\newcommand{\babc}{\begin{enumerate}[a)]}
+\newcommand{\eabc}{\end{enumerate}}
+
+\everymath{\displaystyle}
+
+\setlength{\parskip}{.1in}
+\setlength{\headheight}{15pt}
+\setlength{\topmargin}{0pt}
+
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{MATH 470: Communications and Cryptography}
+\rhead{Texas A\&M University}
+\cfoot{\thepage}

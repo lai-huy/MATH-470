@@ -46,7 +46,7 @@
 
     \noindent
     Inductive Hypothesis: Assume $\forall k\geq3$ that
-    \[a_1u_1+a_2u_2+\cdots+a_{k-1}u_{k-1}=\gcd(a_1,a_2,\cdots,a_{k_1})\]
+    \[a_1u_1+a_2u_2+\cdots+a_{k-1}u_{k-1}=\gcd(a_1,a_2,\cdots,a_{k-1})\]
     Let $b=\gcd(a_1,\cdots,a_{k-1})$.\\
     Apply the Extended Euclidean algorithm to $b$ and $a_k$, this gives the solution
     \[
@@ -98,7 +98,7 @@
     \[g^{\gcd(a,b)}=g^{au+bv}=(g^a)^u\cdot(g^b)^v\equiv1^u\cdot1^v\equiv 1\mod{m}\]
     Since $g^a\equiv1\mod{m}$ and $g^b\equiv1\mod{m}$, the above equation holds.
 
-    \clearpage
+    \newpage
     \problem Let $m\in\mathbb{Z}$
     
     \subproblem Suppose that $m$ is odd. What integer between 1 and $m-1$ equals $2^{-1}\mod{m}$?
@@ -124,7 +124,7 @@
     \noindent
     Therefore, $\frac{1+(b-1)m}{b}=b^{-1}\mod{m}$
 
-    \clearpage
+    \newpage
     \problem Consider the congruence
     \[
     ax\equiv c\mod m
@@ -160,7 +160,7 @@
     This proves that if $\gcd(a,m)|c$, then $ax\equiv c\mod{m}$ has a solution
     \end{proof}
 
-    \clearpage
+    \newpage
     \problem Let
     \begin{flalign*}
     a &= 1234567890123456789012345678901234567890123456789012345678901234567890123456789, & \\

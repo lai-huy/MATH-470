@@ -11,7 +11,7 @@
     \solution
     \begin{table}[!ht]
         \centering
-        \begin{tabular}{|c|c|c|c|}
+        \begin{tabular}{|c|c|c|c| }
         \hline
         $q$ & $r$ & $u$ & $v$ \\
         \hline
@@ -113,8 +113,8 @@
     \subproblem More generally, suppose that $m\equiv 1\mod b$. What integer between 1 and $m-1$ is equal to $b^{-1}\mod m$?
 
     \solution
-    The assumption that $m=1\mod{b}\rightarrow b|(m-1)$ by proposition.\\
-    By the definition of division, $b|(m-1)\rightarrow\exists x\in\mathbb{Z}$ such that $m-1=bx$. This requires that $\frac{m-1}{b}\in\mathbb{Z}$\\
+    The assumption that $m=1\mod{b}\rightarrow b\mid (m-1)$ by proposition.\\
+    By the definition of division, $b\mid (m-1)\rightarrow\exists x\in\mathbb{Z}$ such that $m-1=bx$. This requires that $\frac{m-1}{b}\in\mathbb{Z}$\\
     Multiplying this fraction by $b$ results in
     \[b\cdot\frac{m-1}{b}=m-1\equiv-1\mod{m}\]
     Multiplying this result by $-1$ results in
@@ -129,10 +129,10 @@
     \[
     ax\equiv c\mod m
     \]
-    Prove that there is a solution if and only if $\gcd(a,m)|c$.
+    Prove that there is a solution if and only if $\gcd(a,m)\mid c$.
 
     \solution
-    First we prove that if $ax\equiv c\mod{m}$ has a solution, then $\gcd(a,m)|c$
+    First we prove that if $ax\equiv c\mod{m}$ has a solution, then $\gcd(a,m)\mid c$
     \begin{proof}
     Let $g=\gcd(a,m)$.\\
     According to the definition of divisors, $\exists p,q\in\mathbb{Z}$ such that $a=gp$ and $m=gq$\\
@@ -141,23 +141,23 @@
     Since $g$ divides both sides of the congruence, we can divide by $g$
     \[px\equiv \frac{c}{g}\mod{q}\]
     $\frac{c}{g}$ must be an integer in order for the congruence to hold.\\
-    This implies that $\gcd(a,m)|c$
+    This implies that $\gcd(a,m)\mid c$
 
     \noindent
-    This proves that if $ax\equiv c\mod{m}$ then $\gcd(a,m)|c$
+    This proves that if $ax\equiv c\mod{m}$ then $\gcd(a,m)\mid c$
     \end{proof}
 
     \noindent
-    Next we prove that if $\gcd(a,m)|c$, then $ax\equiv c\mod{m}$ has a solution
+    Next we prove that if $\gcd(a,m)\mid c$, then $ax\equiv c\mod{m}$ has a solution
     \begin{proof}
     According to the Extended Euclidean Algorithm, $\exists u,v\in\mathbb{Z}$ such that
     \[au+mv=\gcd(a,m)\]
     $\gcd(a,m)|c\rightarrow(au+mv)|c$\\
     By definition of divisibility, $\exists y\in\mathbb{Z}$ such that $c=(au+mv)y$\\
     Rearranging this equation results in $mvy=c-auy\Rightarrow -mvy=auy-c$ or equivalently $mY=aX-c$ where $X=uy,Y=-vy$\\
-    Since $X,Y\in\mathbb{Z}$, the definition of divisibility implies that $m|(aX-c)$.\\
-    By one of the modular propositions, $m|(aX-c)\rightarrow aX\equiv c\mod{m}$.\\
-    This proves that if $\gcd(a,m)|c$, then $ax\equiv c\mod{m}$ has a solution
+    Since $X,Y\in\mathbb{Z}$, the definition of divisibility implies that $m\mid (aX-c)$.\\
+    By one of the modular propositions, $m\mid (aX-c)\rightarrow aX\equiv c\mod{m}$.\\
+    This proves that if $\gcd(a,m)\mid c$, then $ax\equiv c\mod{m}$ has a solution
     \end{proof}
 
     \newpage

@@ -1,9 +1,10 @@
 def gcdExtended(a, b):
     if (a == 0):
         return b, 0, 1
-    
-    g, v, u = gcdExtended(b % a,a)
+
+    g, v, u = gcdExtended(b % a, a)
     return g, u - (b // a) * v, v
+
 
 def modInverse(a, m):
     g, u, v = gcdExtended(a, m)
@@ -11,18 +12,20 @@ def modInverse(a, m):
         raise Exception("No Modular Inverse")
     return u % m
 
+
 def main():
-    a = 1234567890123456789012345678901234567890123456789012345678901234567890123456789
-    b = 234567890123456789012345678901234567890123456789012345678901234567890123456789
-    
+    a = 11
+    b = 71
+
     aInv = modInverse(a, b)
     bInv = modInverse(b, a)
-    
+
     print(f"a^(-1) mod b = {aInv}")
     print(f"a*a^(-1)==1 mod b? {(a * aInv) % b == 1}")
-    
+
     print(f"b^(-1) mod a = {bInv}")
     print(f"b*b^(-1)==1 mod a? {(b * bInv) % a == 1}")
+
 
 if __name__ == "__main__":
     main()

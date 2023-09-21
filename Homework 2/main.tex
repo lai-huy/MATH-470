@@ -57,7 +57,7 @@
     Multiplying the Inductive Hypothesis by $v$ results in
     \begin{align*}
     a_1u_1v+a_2u_2v+\cdots+a_{k-1}u_{k-1}v  &= \gcd(a_1,a_2,\cdots,a_{k-1})v    \\
-                                            &= b \text{ by the definition of }b \\
+                                            &= bv \text{ by the definition of }b \\
                                             &= -a_kv+\gcd(b,a_k) \text{ by rearranging the EEA}
     \end{align*}
 
@@ -134,17 +134,10 @@
     \solution
     First we prove that if $ax\equiv c\mod{m}$ has a solution, then $\gcd(a,m)\mid c$
     \begin{proof}
-    Let $g=\gcd(a,m)$.\\
-    According to the definition of divisors, $\exists p,q\in\mathbb{Z}$ such that $a=gp$ and $m=gq$\\
-    We can take this definition and substitute it into the congruence which results in.
-    \[gpx\equiv c\mod{gq}\]
-    Since $g$ divides both sides of the congruence, we can divide by $g$
-    \[px\equiv \frac{c}{g}\mod{q}\]
-    $\frac{c}{g}$ must be an integer in order for the congruence to hold.\\
-    This implies that $\gcd(a,m)\mid c$
-
-    \noindent
-    This proves that if $ax\equiv c\mod{m}$ then $\gcd(a,m)\mid c$
+    Let $x$ be a solution to the congruency $ax\equiv c\mod{m}$.\\
+    By definition of congruence and divisibility
+    \[\exists y\in\mathbb{Z},ax=c+my\]
+    Since $\gcd(a,m)\mid a$ and $\gcd(a,m)\mid m$ $gcd(a,m)\mid ax-my$ by proposition on linear combinations
     \end{proof}
 
     \noindent

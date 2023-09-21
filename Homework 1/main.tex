@@ -76,7 +76,6 @@ $\gcd(291,252)=3$
 
 \solution Prove that $\gcd(a,b)=1$.
 \begin{proof}
-Suppose that there are integers $u$ and $v$ satisfying $au+bv=1$. Prove that $\gcd(a,b)=1$\\
 Let $g=\gcd(a,b)$. Then $\exists x,y\in\mathbb{Z}$ such that $a=gx\land b=gy$\\
 Substituting this into the given equation $au+bv=1$ results in:
 \[
@@ -90,6 +89,7 @@ $g\mid 1$\\
 This requires that $g=1$.
 \end{proof}
 
+\newpage
 \subproblem Suppose that there are integers $u$ and $v$ satisfying $au+bv=6$. Is it necessarily true that $\gcd(a,b)=6$? If not, give a specific counterexample, and describe in general all of the possible values of $\gcd(a,b)$?
 
 \solution
@@ -108,7 +108,12 @@ Rearranging this statement results in:
 \[a(u-xq)+b(v-yq)=r\]
 
 \noindent
-The left hand side is divisible by $g$ since $\gcd(a,b)=g$. Therefore, $g\mid r$. But the only $r$ that can satisfy both $0\leq r < g$ and $g\mid r$ is $r=0$. This results in $c=gq$. This implies that $\gcd(a,b)|c$
+The left hand side is divisible by $g$ since $\gcd(a,b)=g$. Therefore, $g\mid r$. But the only $r$ that can satisfy both $0\leq r < g$ and $g\mid r$ is $r=0$. This results in $c=gq$. This implies that $\gcd(a,b)|c$.
+
+\noindent
+It is not hard to see that each divisor of 6 can be obtained as the gcd of two integers.\\
+For example $1(1)+5(1)=2(1)+4(1)=3(1)+3(1)=6(1)+0(1)=6$\\
+The corresponding $\gcd(a,b)$ are $1,2,3,6$ respectively.
 
 \newpage
 \problem Find the gcd of the following two numbers:

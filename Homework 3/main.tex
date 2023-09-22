@@ -91,10 +91,11 @@ Since $p-1=2q$ with $q$ prime, this means that
 \[k=1\text{ or } k=2 \text{ or } k=q \text{ or } k=2q\]
 
 \noindent
-Since $g\not\equiv\pm1\mod{p}$, then $k\neq1$ and $k\neq2$.\\
+If $k=1$, that means that $g=g^1\equiv1\mod{p}$. Therefore $k\neq1$\\
+If $k=2$, then $g^2\equiv1\mod{p}$. This implies that $g\equiv1\mod{p}$. Because $\pm1\in(\mathbb{Z}/p\mathbb{Z})^*$. Therefore $k\neq2$\\
 Since $g^q\not\equiv1\mod{p}$, then $k\neq q$.\\
 As a result $k=2q\Rightarrow k=p-1$.\\
-With this, the order of $g$ is $p-1$, this satisfies the definition of a primitive root.
+With this, the order of $g$ is $p-1$, this satisfies the definition of a primitive root.\\
 Therefore, $g$ is a primitive root modulo $p$.
 \end{proof}
 
@@ -137,58 +138,47 @@ This proves that there are zero or two solutions.
 \hline
 $a$ & $2^a \mod{13}$ & Order \\
 \hline
-1 & 2 & 12 \\
-2 & 4 & 6 \\
-3 & 8 & 4 \\
-4 & 3 & 3 \\
-5 & 6 & 2 \\
-6 & 12 & 2 \\
-7 & 11 & 12 \\
-8 & 9 & 3 \\
-9 & 5 & 6 \\
-10 & 10 & 12 \\
-11 & 7 & 12 \\
-12 & 1 & 1 \\
+$1$ & $2$ & $12$ \\
+$2$ & $4$ & $6$ \\
+$3$ & $8$ & $4$ \\
+$4$ & $3$ & $3$ \\
+$5$ & $6$ & $12$ \\
+$6$ & $12$ & $2$ \\
+$7$ & $11$ & $12$ \\
+$8$ & $9$ & $3$ \\
+$9$ & $5$ & $4$ \\
+$10$ & $10$ & $6$ \\
+$11$ & $7$ & $12$ \\
+$12$ & $1$ & $1$ \\
 \hline
 \end{tabular}
 
 \noindent
 The primitive roots modulo $p$ are:
-\begin{flalign*}
-2^{1}\mod{p}    &= 2  & 2^{7}\mod{p}    &= 11 & \\
-2^{10}\mod{p}   &= 10 & 2^{11}\mod{p}   &= 7  & \\
-\end{flalign*}
+$2,6,11,7$ which are $g^1,g^5,g^7,g^{11}$
 $\phi(n-1)=\phi(12)=4$
 
 \clearpage
 \subproblem Let $p$ be a prime, let $g$ be a primitive root modulo $p$, and let $a$ be an integer. Prove that the order of $g^a\mod{p}$ is exactly $\frac{p-1}{\gcd(a,p-1)}$. Explain why this implies that the number of primitive roots modulo $p$ is exactly $\phi(p-1)$, assuming that a primitive root $g$ modulo $p$ exists. (Looking over your work in part (a) may help you gain some intuition).
 
-\solution
-Let $n=\frac{p-1}{\gcd(a,p-1)}$
-To prove that the order of $g^a\mod{p}$ is exactly $n$ we must show that the order cannot be smaller than this number and that the order cannot be larger than this number.
-
-\noindent
-First prove that the order cannot be smaller
-
+\solution The proof is as follows
 \begin{proof}
-Let $k$ be the order of $g^a\mod{p}$\\
-This means that $k$ is the smallest positive integer such that $\left(g^a\right)^k \equiv 1\mod{p}$.\\
-Assume that $k<n$.
+Let $n$ by the order of $g^a\mod{p}$.\\
+$gcd(a,p-1)\mid a\rightarrow\exists x\in\mathbb{Z}$ such that $a=x\gcd(a,p-1)$ by definition of divisibility.
+\[\left(g^a\right)^{\frac{p-1}{\gcd(a,p-1)}}=\left(g^{x\cdot\gcd(a,p-1)}\right)^{\frac{p-1}{\gcd(a,p-1)}}=g^{x(p-1)}=\left(g^{(p-1)}\right)^x\equiv1^x\equiv1\mod{p}\]
+The second congruence is due to Fermat's Little Theorem.\\
+This implies that $n\leq\frac{p-1}{\gcd(a,p-1)}$.
 
 \noindent
-By Fermat's Little Theorem, $g^{p-1}\equiv1\mod{p}$.\\
-Raising both sides by the power of $n$ results in
-\[\left(g^{p-1}\right)^n\equiv1^n\equiv1\mod{p}\]
+By proposition, $n\mid(p-1)$. Therefore $\exists y\in\mathbb{Z}$ such that $p-1=ny$.\\
+By definition of $n$, $g^{an}=(g^a)^n\equiv1\mod{p}$.\\
+By proposition, $p-1\mid an=\frac{a(p-1)}{y}$ this implies that $\frac{a}{y}\in\mathbb{Z}$ which further implies that $y\mid a$.\\
+Clearly $y\mid (p-1)$ by its definition. Therefore, $y$ is a common divisor of $a$ and $p-1$ which implies that $y\leq\gcd(a,p-1)$.
+Since $n=\frac{p-1}{y}\geq\frac{p-1}{\gcd(a,p-1)}$.
 
 \noindent
-Consider
-\[\left(g^a\right)^n\equiv g^{an}\mod{p}\]
-Multiplying the exponent by $\frac{p-1}{p-1}$ results in
-\[g^{an}\equiv g^{(p-1)\cdot\frac{an}{p-1}}\mod{p}\]
-Using Fermat's Little Theorem gives
-\[g^{an}\equiv 1^{\frac{an}{p-1}}\mod{p}\]
-This implies that the order of $g^a\mod{p}$ is at most $n$.\\
-This contriducts with the assumption that the order is smaller
+We have shown that $n\leq\frac{p-1}{\gcd(a,p-1)}$ and that $n\geq\frac{p-1}{\gcd(a,p-1)}$.\\
+Therefore the order of $g^a\mod{p}$ is $n=\frac{p-1}{\gcd(a,p-1)}$
 \end{proof}
 
 \clearpage

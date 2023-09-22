@@ -1,5 +1,8 @@
 *.gpg
 *.log
+
 Syllabus.pdf
 Textbook.pdf
+Exam [0-9]* Sample.pdf
+
 .vscode/

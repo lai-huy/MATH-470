@@ -7,7 +7,7 @@
 \thispagestyle{empty}
 \problem Decode the following Caesar cipher:
 \begin{center}
-EREKK MIHSI WRSXP MIGLI EXSVW XIEPS VXSPI VEXIX LSWIA LSHS
+	EREKK MIHSI WRSXP MIGLI EXSVW XIEPS VXSPI VEXIX LSWIA LSHS
 \end{center}
 
 \solution
@@ -20,21 +20,21 @@ An Aggie does not lie cheat or steal or tolerate those who do
 
 \problem Encrypt the plaintext message using the subsitution encryption table
 \begin{table}[!ht]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
-        \hline
-        A & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z \\
-        \hline
-        S & C & J & A & X & U & F & B & Q & K & T & P & R & W & E & Z & H & V & L & I & G & Y & D & N & M & O \\
-        \hline
-    \end{tabular}
-    \caption{Simple substitution encryption table}
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
+		\hline
+		A & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z \\
+		\hline
+		S & C & J & A & X & U & F & B & Q & K & T & P & R & W & E & Z & H & V & L & I & G & Y & D & N & M & O \\
+		\hline
+	\end{tabular}
+	\caption{Simple substitution encryption table}
 \end{table}
 
 \noindent
 Plain Text:
 \begin{center}
-The gold is hidden in the garden
+	The gold is hidden in the garden
 \end{center}
 
 \solution
@@ -43,18 +43,18 @@ The gold is hidden in the garden
 \newpage
 \problem Let $a,b,c\in\mathbb{Z}$. Use the definition of divisibility to directly prove that if $a\mid b$ and $b\mid a$, then $a=\pm b$.
 
-\solution 
+\solution
 Prove that if $a\mid b$ and $b\mid a$, then $a=\pm b$
 \begin{proof}
-By definition $\exists x,y\in\mathbb{Z}$ such that $a=bx$ and $b=ay$\\
-$a = bx \Rightarrow a = ayx$\\
-Dividing both sides by $a$ results in:\\
-$1 = yx$
+	By definition $\exists x,y\in\mathbb{Z}$ such that $a=bx$ and $b=ay$\\
+	$a = bx \Rightarrow a = ayx$\\
+	Dividing both sides by $a$ results in:\\
+	$1 = yx$
 
-\noindent
-Since both $x$ and $y$ are integers and their product is 1, $x=y=\pm 1$\\
-Using this result in the equation for $a$ gives:\\
-$a=\pm b$
+	\noindent
+	Since both $x$ and $y$ are integers and their product is 1, $x=y=\pm 1$\\
+	Using this result in the equation for $a$ gives:\\
+	$a=\pm b$
 \end{proof}
 
 \problem Use the Euclidean algorithm to compute the greatest common divisor of 291 and 252.
@@ -62,10 +62,10 @@ $a=\pm b$
 \solution
 $\gcd(291,252)$
 \begin{flalign*}
-292 &= 1*252+40 &\\
-252 &= 6*40+12 &\\
-40 &= 3*12+4 &\\
-12 &= 3*4+0 &
+	292 & = 1*252+40 & \\
+	252 & = 6*40+12  & \\
+	40  & = 3*12+4   & \\
+	12  & = 3*4+0    &
 \end{flalign*}
 $\gcd(291,252)=3$
 
@@ -76,17 +76,17 @@ $\gcd(291,252)=3$
 
 \solution Prove that $\gcd(a,b)=1$.
 \begin{proof}
-Let $g=\gcd(a,b)$. Then $\exists x,y\in\mathbb{Z}$ such that $a=gx\land b=gy$\\
-Substituting this into the given equation $au+bv=1$ results in:
-\[
-1=au+bv=gxu+gyv=g(xu+yv)
-\]
+	Let $g=\gcd(a,b)$. Then $\exists x,y\in\mathbb{Z}$ such that $a=gx\land b=gy$\\
+	Substituting this into the given equation $au+bv=1$ results in:
+	\[
+		1=au+bv=gxu+gyv=g(xu+yv)
+	\]
 
-\noindent
-$u,v,x,y\in\mathbb{Z}\rightarrow(xu+yv)\in\mathbb{Z}$\\
-As a result of the previous statement:\\
-$g\mid 1$\\
-This requires that $g=1$.
+	\noindent
+	$u,v,x,y\in\mathbb{Z}\rightarrow(xu+yv)\in\mathbb{Z}$\\
+	As a result of the previous statement:\\
+	$g\mid 1$\\
+	This requires that $g=1$.
 \end{proof}
 
 \newpage
@@ -118,35 +118,17 @@ The corresponding $\gcd(a,b)$ are $1,2,3,6$ respectively.
 \newpage
 \problem Find the gcd of the following two numbers:
 \begin{flalign*}
-a &= 1234567890123456789012345678901234567890123456789012345678901234567890123456789 \\
-b &= 234567890123456789012345678901234567890123456789012345678901234567890123456789
+	a & = 1234567890123456789012345678901234567890123456789012345678901234567890123456789 \\
+	b & = 234567890123456789012345678901234567890123456789012345678901234567890123456789
 \end{flalign*}
 
 \solution
-\begin{minted}{python}
-def gcd(a: int, b: int):
-    if a == 0:
-        return b
-    if b == 0:
-        return a
-    return gcd(b, a % b)
-
-
-def main():
-    a = 1234567890123456789012345678901234567890123456789012345678901234567890123456789
-    b = 234567890123456789012345678901234567890123456789012345678901234567890123456789
-
-    print("gcd(a,b) =", gcd(a, b))
-
-
-if __name__ == "__main__":
-    main()
-\end{minted}
+\inputminted{python3}{gcd.py}
 
 \begin{figure}[ht!]
-    \centering
-    \includegraphics[width=\textwidth]{Problem 6.png}
-    \caption{Output of the Code}
+	\centering
+	\includegraphics[width=\textwidth]{Problem 6.png}
+	\caption{Output of the Code}
 \end{figure}
 
 \end{document}

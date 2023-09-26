@@ -1,5 +1,11 @@
 *.gpg
 *.log
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+main.pdf
 
 Syllabus.pdf
 Textbook.pdf

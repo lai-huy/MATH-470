@@ -9,6 +9,6 @@ main.pdf
 
 Syllabus.pdf
 Textbook.pdf
-Exam [0-9]* Sample.pdf
+Exam [0-9]*/
 
 .vscode/

@@ -35,9 +35,9 @@ def lsbs(g: int, h: int, p: int) -> int:
 
 
 def main():
-    p = 123456789001907
-    h = 3
-    g = 2
+    p = 19079
+    h = 19
+    g = 17
     print(f"{g}^{lsbs(g, h, p)}=={h} mod {p}")
 
 

@@ -10,7 +10,7 @@ def tonelli(n, p):
     q = p - 1
     s = 0
     while not (q & 1):
-        q >>= 2
+        q >>= 1
         s += 1
     if s == 1:
         return pow(n, (p + 1) >> 2, p)
@@ -18,7 +18,7 @@ def tonelli(n, p):
         if p - 1 == legendre(z, p):
             break
     c = pow(z, q, p)
-    r = pow(n, (q + 1) >> 2, p)
+    r = pow(n, (q + 1) >> 1, p)
     t = pow(n, q, p)
     m = s
     t2 = 0

@@ -14,8 +14,8 @@ def modInverse(a, m):
 
 
 def main():
-    a = 11
-    b = 71
+    a = 17
+    b = 19079
 
     aInv = modInverse(a, b)
     bInv = modInverse(b, a)

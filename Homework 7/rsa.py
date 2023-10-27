@@ -56,7 +56,11 @@ def main():
 
     e = 65537
     c = 2400556132229818489305649515346654848298483477334619666591280284126769
-    tonelli(6, 97)
+    # a^2 === b^2 mod N
+    # gcd(a + b, N), gcd(a - b, N)
+    # phi(N) = (p-1)(q-1)
+    # ed === 1 mod phi(N)
+    # use d to decrypt
 
 
 if __name__ == "__main__":

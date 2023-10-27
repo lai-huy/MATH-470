@@ -41,11 +41,11 @@ Assuming that Eve also knows $N$ and the two encryption exponents $e_1$ and $e_2
 
 \solution
 With the method described in Example 3.15, we find that
-\[u\cdot c_1+v\cdot c_2=1\]
+\[u\cdot e_1+v\cdot e_2=1\]
 with
 \[u= 252426389 \text{ and } v=-496549570\]
 Then the plaintext is
-\[m\equiv c_1^{u}\cdot c_2^{v}\equiv 105459238\mod{N}\]
+\[m\equiv c_1^{u}\cdot c_2^{v}\equiv 1054592380\mod{N}\]
 
 \newpage
 \problem Use the Miller–Rabin test on each of the following numbers. In each case, either provide a Miller-Rabin witness for the compositeness of $n$, or conclude that $n$ is probably prime by providing 10 numbers that are not Miller-Rabin witnesses for $n$.
@@ -84,44 +84,61 @@ Thus 118901521 is composite. It factors into $n=271\cdot541\cdot811$
 \problem Show that the Elgamal encryption protocol is insecure against a Chosen Ciphertext Attack. More specifically, suppose Bob has published a prime $p$, primitive root $g\mod{p}$, and his public key $B$. Alice has sent Bob a ciphertext $(c_1,c_2)$. So far Eve only knows $p,g,B$, and $(c_1,c_2)$. But suppose now that Eve can somehow make Bob decrypt “random-looking” ciphertexts $(c_1', c_2')$ of Eve’s choice (by “random-looking” we mean that Bob should not be able to tell that $(c_1', c_2')$ or its decryption is related to Alice’s message in any way). Show how Eve can use this ability to decrypt Alice’s message.
 
 \solution
-We can generate a ``random" cipher text for Bob to decrypt using a second message $m'$ and Eve's secret key $k'$ as follows:
+We can generate a ``random" cipher text for Bob to decrypt using a second message $m'$ and Eve's secret key $k'$ as follows and a random integer $r$:
 \begin{flalign*}
-    c_1' & = c_1\cdot g^{k'}\equiv g^{k+k'}\mod{p}                         & \\
-    c_2' & = c_2\cdot B^{k'}\cdot m'\equiv(m\cdot m')\cdot B^{k+k'}\mod{p} & \\
+    c_1' & = c_1\cdot g^{k'}\mod{p}        & \\
+    c_2' & = c_2\cdot r\cdot B^{k'}\mod{p} & \\
 \end{flalign*}
+Bob uses this information to calculate the ``encrypted" message to return the decryption:
+\begin{flalign*}
+    m' & \equiv (c_1')^{-b}(c_2')                  & \\
+       & \equiv (c_1g^{k'})^{-b}(c_2rB^{k'})       & \\
+       & \equiv (g^{k'}(g^a))^{-b}(rB^{k'}(B^am)   & \\
+       & \equiv (g^{-k'b}g^{-ab})(rg^{bk'}g^{ba}m) & \\
+       & \equiv rm \mod{p}
+\end{flalign*}
+Note that the decryption $m'$ looks random from the random integer $r$.\\
+Eve can recover $m$ by multiplying Bob's decryption by $r^{-1}\mod{p}$
 
-\noindent
-Bob uses this information to calculate the ``encrypted" message to send back as follows:
-\[m''=m\cdot m'\]
-With this, the original message can be recovered by calculating $m''\cdot(m')^{-1}$.
-
+\newpage
 \problem Let $N=pq$ be a product of two distinct odd primes $p$ and $q$. Show that there are four square roots of $1$ modulo $N$. In other words, show that there are exactly four integers in $\{1,2,3,\cdots,N-1\}$ whose squares are congruent to $1\mod{N}$.
 
 \solution
-Since $p-1$ and $q-1$ are both even, $\exists m,n\in\mathbb{Z}$ such that $p-1=2m,q-1=2n$\\
-By Fermat's Little Theorem we know that if $a\nmid p$ and $p$ is prime,
-\[a^{p-1}\equiv 1\mod{p}\]
+Let $x$ be an integer such that $x^2\equiv 1\mod{N}$.\\
+Since $N=pq$, we have $x^2\equiv 1\mod{p}$ and $x^2\equiv 1\mod{q}$.\\
+By 1.36(a), $p,q$ are odd primes, there are exactly two solutions to $x^2\equiv 1\mod{p}$, namely $x\equiv\pm1\mod{p}$.\\
+Additionally, there are exactly two solutions to $x^2\equiv 1\mod{q}$, namely $x\equiv\pm1\mod{q}$.
+
 \noindent
-Substituting $2m$ for $p-1$ gives us
-\[a^{2m}\equiv 1\mod{p}\]
-This is equivalent to $(a^m)^2\equiv1\mod{p}$\\
-We know from a previous homework question that there exists exactly two solutions to the above equation.\\
-A similar logic can be applied to $q$.\\
-As a result, there are exactly four solutions.
+So there are four possible cases for $x$:
+\begin{flalign}
+    x\equiv1\mod{p}\quad  & \text{ and } \quad x\equiv1\mod{q}  & \\
+    x\equiv1\mod{p}\quad  & \text{ and } \quad x\equiv-1\mod{q} & \\
+    x\equiv-1\mod{p}\quad & \text{ and } \quad x\equiv1\mod{q}  & \\
+    x\equiv-1\mod{p}\quad & \text{ and } \quad x\equiv-1\mod{q} &
+\end{flalign}
+Since $p,q$ are distinct odd primes, we have $\gcd(p,q)=1$, so we can apply the Chinese Remainder Theorem.\\
+Each of the four systems of congruences above have a solution that is unique modulo $N=pq$.\\
+This implies that there are at most four solutions.
+
+\noindent
+To see why there are exactly four, note that $+1\not\equiv-1\mod{p}$ nor $+1\not\equiv-1\mod{q}$ (because $p,q$ are odd), so the solutions to the four systems of congruences above are distinct modulo either $p$ or $q$.\\
+In either case, they are all distinct modulo $N$.\\
+Hence there are exactly four solutions to $x^2\equiv 1\mod{N}$.
 
 \newpage
 \problem Suppose that you are given an integer $N$ and a pair of integers $e,d$ with the promise that $N$ is the product of two large primes and that $ed\equiv1\mod{\phi(N)}$ (but you are not given the factors of $N$ nor the value of $\phi(N)$. Describe an algorithm that efficiently factors $N$.
 
-\solution The algorithm is as follows
+\solution Note that since $ed\equiv 1\mod{\phi(N)}$, by proposition, $\phi(N)\mid ed-1$. This implies that $k\cdot\phi{N}+1=ed,k\in\mathbb{Z}$
 
 \begin{enumerate}
     \item Compute a random integer a such that $1<a<N$. This is similar to how the Miller-Rabin primality test selects random witnesses.
     \item Calculate the value $x\equiv a^d\mod{N}$. Since $ed\equiv1\mod{\phi{(N)}}$, this means that $x^e\equiv a^{(d\cdot e)}\equiv a^{(k\cdot\phi(N)+1)}\equiv a\mod{N}$, where $k$ is an integer.
 
-    \item Use the Extended Euclidean Algorithm to find the $\gcd(N,x-a)$. If the GCD is greater than 1, then it means that $N$ has a non-trivial factor in common with $x-a$.
+    \item Use the Extended Euclidean Algorithm to find $g=\gcd(N,x-a)$. If the $g>1$, then it means that $N$ has a non-trivial factor in common with $x-a$.
 
-    \item If the GCD is 1, repeat steps 1-3 with a different random value of a. Keep doing this until you find a GCD greater than 1 or until you've tried a sufficient number of random values of a.
+    \item If $g=1$, repeat steps 1-3 with a different random value of $a$. Keep doing this until you find $g>1$ or until you've tried a sufficient number of random values of $a$.
 
-    \item Once you find a GCD greater than 1 (let's say it's G), you have effectively found one of the prime factors of N, either p or q.
+    \item Once you find a $g>1$, you have effectively found one of the prime factors of $N$, either $p$ or $q$.
 \end{enumerate}
 \end{document}

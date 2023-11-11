@@ -3,14 +3,14 @@ from numpy import gcd
 
 def pollard(N):
     a, i = 2, 2
+    g = 1
 
     # iterate till a prime factor is obtained
-    while (True):
+    while (g <= 1):
         a = pow(a, i, N)
         g = gcd(a - 1, N)
-        if (g > 1):
-            return g
         i += 1
+    return g
 
 
 def main():

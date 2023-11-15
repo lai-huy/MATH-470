@@ -31,11 +31,11 @@ Alice decides to choose a new private key $a=299$ with associated public key $A\
 
 \solution Decrypting the message is as follows
 \begin{flalign*}
-m &= \left(c_1^{-1}\right)^{a}c_2\mod{p} & \\
-  &= (661^{299})^{-1}\cdot1325\mod{1373} & \\
-  &= 645^{-1}\cdot1325\mod{1373}         & \\
-  &= 794\cdot1325\mod{1373}              & \\
-  &= 332
+    m & = \left(c_1^{-1}\right)^{a}c_2\mod{p} & \\
+      & = (661^{299})^{-1}\cdot1325\mod{1373} & \\
+      & = 645^{-1}\cdot1325\mod{1373}         & \\
+      & = 794\cdot1325\mod{1373}              & \\
+      & = 332
 \end{flalign*}
 
 \newpage
@@ -58,18 +58,18 @@ By Fermat's Little Theorem we can calculate $g^{-n}\equiv g^{n\cdot(p-2)}\mod{p}
 \noindent
 \begin{tabular}{|c|c|c|}
     \hline
-    $i$ & $g^i\mod{71}$ & $hg^{-in}\mod{71}$  \\
+    $i$ & $g^i\mod{71}$ & $hg^{-in}\mod{71}$ \\
     \hline
-    $0$ & $1$ & $21$ \\
-    $1$ & $11$ & $5$ \\
-    $2$ & $50$ & $35$ \\
-    $3$ & $53$ & $32$ \\
-    $4$ & $15$ & $11$ \\
-    $5$ & $23$ & $6$ \\
-    $6$ & $40$ & $42$ \\
-    $7$ & $14$ & $10$ \\
-    $8$ & $12$ & $70$ \\
-    $9$ & $61$ & $64$ \\
+    $0$ & $1$           & $21$               \\
+    $1$ & $11$          & $5$                \\
+    $2$ & $50$          & $35$               \\
+    $3$ & $53$          & $32$               \\
+    $4$ & $15$          & $11$               \\
+    $5$ & $23$          & $6$                \\
+    $6$ & $40$          & $42$               \\
+    $7$ & $14$          & $10$               \\
+    $8$ & $12$          & $70$               \\
+    $9$ & $61$          & $64$               \\
     \hline
 \end{tabular}
 
@@ -84,27 +84,27 @@ Prove that the congruence $X^2\equiv b\mod{p^2}$ also has a solution.
 \solution To prove that if the congruence $X^2 \equiv b \mod{p}$ has a solution, then the congruence $X^2 \equiv b \mod{p^2}$ also has a solution, we can use the Chinese Remainder Theorem (CRT) and a bit of algebraic manipulation.
 
 \begin{proof}
-Let $x_1$ be a solution to $X^2 \equiv b \mod{p}$.\\
-Assume that $X = x_1 + kp,k\in\mathbb{Z}$
+    Let $x_1$ be a solution to $X^2 \equiv b \mod{p}$.\\
+    Assume that $X = x_1 + kp,k\in\mathbb{Z}$
 
-\noindent
-Now, we'll square $X$ and see what we get:
-\begin{flalign*}
-X^2 &= (x_1 + kp)^2 &\\
-    &= x_1^2 + 2kpx_1 + k^2p^2 &.
-\end{flalign*}
+    \noindent
+    Now, we'll square $X$ and see what we get:
+    \begin{flalign*}
+        X^2 & = (x_1 + kp)^2            &   \\
+            & = x_1^2 + 2kpx_1 + k^2p^2 & .
+    \end{flalign*}
 
-\noindent
-Now, let's consider the congruence $X^2 \equiv b \mod{p^2}$. Substituting our expression for $X^2$, we have:
-\[x_1^2 + 2kpx_1 + k^2p^2 \equiv b \mod{p^2}\]
+    \noindent
+    Now, let's consider the congruence $X^2 \equiv b \mod{p^2}$. Substituting our expression for $X^2$, we have:
+    \[x_1^2 + 2kpx_1 + k^2p^2 \equiv b \mod{p^2}\]
 
-\noindent
-Now, notice that $x_1^2 \equiv b \mod{p}$ by our assumption. Additionally, $k^2p^2$ is a multiple of $p^2$. So, we can simplify the congruence to:
-\[b+2kpx_1\equiv b\mod{p^2}\]
-By proposition, this implies that $p^2\mid (2kpx_1+b-b)\rightarrow p^2\mid 2kpx_1$.
+    \noindent
+    Now, notice that $x_1^2 \equiv b \mod{p}$ by our assumption. Additionally, $k^2p^2$ is a multiple of $p^2$. So, we can simplify the congruence to:
+    \[b+2kpx_1\equiv b\mod{p^2}\]
+    By proposition, this implies that $p^2\mid (2kpx_1+b-b)\rightarrow p^2\mid 2kpx_1$.
 
-\noindent
-This shows that for $k\in\mathbb{Z}$, $X=x_1+kp$ satisfies the congruence $X^2\equiv b \mod{p^2}$. Therefore, we have found a solution to $X^2 \equiv b \mod{p^2}$, given that a solution exists for $X^2 \equiv b \mod{p}$.
+    \noindent
+    This shows that for $k\in\mathbb{Z}$, $X=x_1+kp$ satisfies the congruence $X^2\equiv b \mod{p^2}$. Therefore, we have found a solution to $X^2 \equiv b \mod{p^2}$, given that a solution exists for $X^2 \equiv b \mod{p}$.
 \end{proof}
 
 \newpage

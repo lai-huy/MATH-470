@@ -116,12 +116,12 @@ We can generate this transcript by running the protocol algorithm in reverse.
 \begin{enumerate}
     \item Let $r\in\mathbb{Z}/q\mathbb{Z}$ be a uniformly random integer.
     \item Let $h\in\mathbb{Z}/q\mathbb{Z}$ be a uniformly random integer.
-    \item Let $C=\frac{g^r}{A^h}$
+    \item Let $C\equiv g^r\cdot A^{-h}\mod{p}$
 \end{enumerate}
 We can verify the following this process, a verify could compute the following
 \begin{flalign*}
     g^r & \equiv C\cdot A^{h}\mod{p}             & \\
-        & \equiv \frac{g^r}{A^h}\cdot A^h\mod{p} & \\
+        & \equiv g^r\cdot A^{-h}\cdot A^h\mod{p} & \\
         & \equiv g^r
 \end{flalign*}
 This means that with an exchange constructed with this method, a reader of a transcript $(C,h,r)$ can be independently verified as accepted relations.

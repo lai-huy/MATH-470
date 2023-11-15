@@ -93,10 +93,12 @@ Therefore, $x^2\equiv 2\mod 13$ has no solutions
 \problem Suppose that $g^a\equiv 1\mod m$ and that $g^b\equiv 1\mod m$. Prove that
 \[g^{\gcd(a,b)}\equiv 1\mod m\]
 
-\solution
-According to the Extended Euclidean Algorithm, $\exists u,v\in\mathbb{Z}$ such that $au+bv=\gcd(a,b)$. Then
-\[g^{\gcd(a,b)}=g^{au+bv}=(g^a)^u\cdot(g^b)^v\equiv1^u\cdot1^v\equiv 1\mod{m}\]
-Since $g^a\equiv1\mod{m}$ and $g^b\equiv1\mod{m}$, the above equation holds.
+\solution The Proof is as follows
+\begin{proof}
+    According to the Extended Euclidean Algorithm, $\exists u,v\in\mathbb{Z}$ such that $au+bv=\gcd(a,b)$. Then
+    \[g^{\gcd(a,b)}=g^{au+bv}=(g^a)^u\cdot(g^b)^v\equiv1^u\cdot1^v\equiv 1\mod{m}\]
+    Since $g^a\equiv1\mod{m}$ and $g^b\equiv1\mod{m}$, the above equation holds.
+\end{proof}
 
 \newpage
 \problem Let $m\in\mathbb{Z}$
@@ -108,7 +110,7 @@ Since $m$ is odd, then $\frac{m+1}{2}$ must also be an integer, since $m+1$ is a
 \[2\cdot\frac{m+1}{2}=m+1\equiv1\mod{m}\]
 
 \noindent
-Therefore $\frac{m+1}{2}=2^{-1}\mod{m}$
+Therefore $\frac{m+1}{2}\equiv2^{-1}\mod{m}$
 
 \subproblem More generally, suppose that $m\equiv 1\mod b$. What integer between 1 and $m-1$ is equal to $b^{-1}\mod m$?
 

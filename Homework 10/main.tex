@@ -1,0 +1,314 @@
+\documentclass[12pt]{article}
+
+\input{hw-preamble}
+\usepackage{multicol}
+
+\begin{document}
+\thispagestyle{empty}
+\hw{10}{29 November 2023}
+
+\problem Check that the points $P=(-1,4)$ and $Q=(2,5)$ are points on the elliptic curve $E:Y^2=X^3+17$
+
+\subproblem Compute the points $P\oplus Q$ and $P\ominus Q$
+
+\solution
+\begin{multicols}{2}
+    $L:y-4=\frac{5-4}{2+1}(x+1)\rightarrow y=\frac{1}{3}x+\frac{13}{3}$
+    \begin{flalign*}
+        \left(\frac{1}{3}x+\frac{13}{3}\right)^2      & = x^3+17 & \\
+        \frac{1}{9}x^2+\frac{26}{9}x+\frac{169}{9}    & = x^3+17 & \\
+        x^3-\frac{1}{9}x^2-\frac{26}{9}x-\frac{16}{9} & = 0      & \\
+        (x+1)(x-2)\left(x-\frac{8}{9}\right)          & = 0
+    \end{flalign*}
+    $R_x=\frac{8}{9}$
+
+    \noindent
+    We plug this into the line equation to find $R_y$
+    \begin{flalign*}
+        R_y & =\frac{1}{3}R_x+\frac{13}{3} & \\
+            & =\frac{109}{27}
+    \end{flalign*}
+
+    \noindent
+    $P\oplus Q=\left(-\frac{8}{9},-\frac{109}{27}\right)$
+
+    \newcolumn
+    \noindent
+    $L:y-4=\frac{-5-4}{2+1}(x+1)\rightarrow y=-3x+1$
+    \begin{flalign*}
+        \left(-3x+1\right)^2 & \equiv x^3+17 & \\
+        9x^2-6x+1            & \equiv x^3+17 & \\
+        x^3-9x^2+6x+16       & \equiv 0      & \\
+        (x+1)(x-2)(x-8)      & \equiv 0
+    \end{flalign*}
+    $R_x=8$
+
+    \noindent
+    We plug this into the line equation to find $R_y$
+    \begin{flalign*}
+        R_y & =-3R_x+1 & \\
+            & =-23
+    \end{flalign*}
+
+    \noindent
+    $P\ominus Q=(8,23)$
+\end{multicols}
+
+\newpage
+\subproblem Compute the points $2P$ and $2Q$
+
+\solution
+We first find the implicit derivative
+\begin{flalign*}
+    y^2  & = x^3+17          & \\
+    2yy' & = 3x^2            & \\
+    y'   & = \frac{3x^2}{2y} &
+\end{flalign*}
+
+\begin{multicols}{2}
+    $L:y-4=\frac{3(-1)^2}{2(4)}(x+1)\rightarrow y=\frac{3}{8}x+\frac{35}{8}$
+    \begin{flalign*}
+        \left(\frac{3}{8}x+\frac{35}{8}\right)^2          & = x^3+17 & \\
+        \frac{9}{64}x^2+\frac{105}{32}x+\frac{1225}{64}   & = x^3+17 & \\
+        x^3-\frac{9}{64}x^2-\frac{105}{32}-\frac{137}{64} & = 0      & \\
+        (x+1)^2\left(x-\frac{137}{64}\right)              & = 0      &
+    \end{flalign*}
+    $R_x=\frac{137}{64}$
+
+    \noindent
+    We plug this into the line equation to find $R_y$
+    \begin{flalign*}
+        R_y & =\frac{3}{8}R_x+\frac{35}{8} & \\
+            & =\frac{2651}{512}
+    \end{flalign*}
+
+    $2P=\left(\frac{137}{64},-\frac{2651}{512}\right)$
+
+    \newcolumn
+    $L:y-5=\frac{3(2)^2}{2(5)}(x-2)\rightarrow y=\frac{6}{5}x+\frac{13}{5}$
+    \begin{flalign*}
+        \left(\frac{6}{5}x+\frac{13}{5}\right)^2            & = x^3+17 & \\
+        \frac{36}{25}x^2+\frac{156}{25}x+\frac{169}{25}     & = x^3+17 & \\
+        x^3-\frac{36}{25}x^2-\frac{156}{25}x-\frac{256}{25} & = 0      & \\
+        (x-2)^2\left(x+\frac{64}{25}\right)                 & = 0      &
+    \end{flalign*}
+    $R_x=-\frac{64}{25}$
+
+    \noindent
+    We plug this into the line equation to find $R_y$
+    \begin{flalign*}
+        R_y & = \frac{6}{5}R_x+\frac{13}{5} & \\
+            & = -\frac{59}{125}
+    \end{flalign*}
+    $2Q=\left(-\frac{64}{25},\frac{59}{125}\right)$
+\end{multicols}
+
+\newpage
+\problem Make an addition table for $E$ over $\mathbb{F}_p$, as we did in Table 6.1
+
+\subproblem $E:Y^2=X^3+X+2$ over $\mathbb{F}_5$
+
+\solution $E(\mathbb{F}_5)=\{\mathcal{O},(1,2),(1,3),(4,0)\}$
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c||c|c|c|c|}
+        \hline
+                      & $\mathcal{O}$ & $(1,2)$       & $(1,3)$       & $(4,0)$       \\ \hline\hline
+        $\mathcal{O}$ & $\mathcal{O}$ & $(1,2)$       & $(1,3)$       & $(4,0)$       \\ \hline
+        $(1,2)$       & $(1,2)$       & $(4,0)$       & $\mathcal{O}$ & $(1,3)$       \\ \hline
+        $(1,3)$       & $(1,3)$       & $\mathcal{O}$ & $(4,0)$       & $(1,2)$       \\ \hline
+        $(4,0)$       & $(4,0)$       & $(1,3)$       & $(1,2)$       & $\mathcal{O}$ \\\hline
+    \end{tabular}
+    \caption{Addition Table}
+\end{table}
+
+\subproblem $E:Y^2=X^3+2X+3$ over $\mathbb{F}_7$
+
+\solution $E(\mathbb{F}_7)=\{\mathcal{O},(2,1),(2,6),(3,1),(3,6),(6,0)\}$
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c||c|c|c|c|c|c|}
+        \hline
+                      & $\mathcal{O}$ & $(2,1)$       & $(2,6)$       & $(3,1)$       & $(3,6)$       & $(6,0)$       \\ \hline\hline
+        $\mathcal{O}$ & $\mathcal{O}$ & $(1,2)$       & $(1,3)$       & $(4,0)$       & $(3,6)$       & $(6,0)$       \\ \hline
+        $(2,1)$       & $(2,1)$       & $(3,6)$       & $\mathcal{O}$ & $(2,6)$       & $(6,0)$       & $(3,1)$       \\ \hline
+        $(2,6)$       & $(2,6)$       & $\mathcal{O}$ & $(3,1)$       & $(6,0)$       & $(2,1)$       & $(3,6)$       \\ \hline
+        $(3,1)$       & $(3,1)$       & $(2,6)$       & $(6,0)$       & $(3,6)$       & $\mathcal{O}$ & $(2,1)$       \\ \hline
+        $(3,6)$       & $(3,6)$       & $(6,0)$       & $(2,1)$       & $\mathcal{O}$ & $(3,1)$       & $(2,6)$       \\ \hline
+        $(6,0)$       & $(6,0)$       & $(3,1)$       & $(3,6)$       & $(2,1)$       & $(2,6)$       & $\mathcal{O}$ \\ \hline
+    \end{tabular}
+    \caption{Addition Table}
+\end{table}
+
+\newpage
+\subproblem $E:Y^2=X^3+2X+5$ over $\mathbb{F}_{11}$
+
+\solution $E(\mathbb{F}_{11})=\{\mathcal{O},(0,4),(0,7),(3,4),(3,7),(4,0),(8,4),(8,7),(9,2),(9,9)\}$
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|}
+        \hline
+                      & $\mathcal{O}$ & $(0,4)$       & $(0,7)$       & $(3,4)$       & $(3,7)$       & $(4,0)$       & $(8,4)$       & $(8,7)$       & $(9,2)$       & $(9,9)$       \\ \hline\hline
+        $\mathcal{O}$ & $\mathcal{O}$ & $(0,4)$       & $(0,7)$       & $(3,4)$       & $(3,7)$       & $(4,0)$       & $(8,4)$       & $(8,7)$       & $(9,2)$       & $(9,9)$       \\ \hline
+        $(0,4)$       & $(0,4)$       & $(9,2)$       & $\mathcal{O}$ & $(8,7)$       & $(9,9)$       & $(8,4)$       & $(3,7)$       & $(4,0)$       & $(3,4)$       & $(0,7)$       \\ \hline
+        $(0,7)$       & $(0,7)$       & $\mathcal{O}$ & $(9,9)$       & $(9,2)$       & $(8,4)$       & $(8,7)$       & $(4,0)$       & $(3,4)$       & $(0,4)$       & $(3,7)$       \\ \hline
+        $(3,4)$       & $(3,4)$       & $(8,7)$       & $(9,2)$       & $(8,4)$       & $\mathcal{O}$ & $(9,9)$       & $(0,7)$       & $(3,7)$       & $(4,0)$       & $(0,4)$       \\ \hline
+        $(3,7)$       & $(3,7)$       & $(9,9)$       & $(8,4)$       & $\mathcal{O}$ & $(8,7)$       & $(9,2)$       & $(3,4)$       & $(0,4)$       & $(0,7)$       & $(4,0)$       \\ \hline
+        $(4,0)$       & $(4,0)$       & $(8,4)$       & $(8,7)$       & $(9,9)$       & $(9,2)$       & $\mathcal{O}$ & $(0,4)$       & $(0,7)$       & $(3,7)$       & $(3,4)$       \\ \hline
+        $(8,4)$       & $(8,4)$       & $(3,7)$       & $(4,0)$       & $(0,7)$       & $(3,4)$       & $(0,4)$       & $(9,2)$       & $\mathcal{O}$ & $(9,9)$       & $(8,7)$       \\ \hline
+        $(8,7)$       & $(8,7)$       & $(4,0)$       & $(3,4)$       & $(3,7)$       & $(0,4)$       & $(0,7)$       & $\mathcal{O}$ & $(9,9)$       & $(8,4)$       & $(9,2)$       \\ \hline
+        $(9,2)$       & $(9,2)$       & $(3,4)$       & $(0,4)$       & $(4,0)$       & $(0,7)$       & $(3,7)$       & $(9,9)$       & $(8,4)$       & $(8,7)$       & $\mathcal{O}$ \\ \hline
+        $(9,9)$       & $(9,9)$       & $(0,7)$       & $(3,7)$       & $(0,4)$       & $(4,0)$       & $(3,4)$       & $(8,7)$       & $(9,2)$       & $\mathcal{O}$ & $(8,4)$       \\ \hline
+    \end{tabular}
+    \caption{Addition Table}
+\end{table}
+
+\newpage
+\problem Let $E$ be an elliptic curve over $\mathbb{F}_p$ and let $P$ and $Q$ be points in $E(\mathbb{F}_p)$. Assume that $Q$ is a multiple of $P$ and let $n_0>0$ be the smallest solution to $Q=nP$. Also let $s>0$ be the smallest solution to $sP=\mathcal{O}$. Prove that every solution to $Q=nP$ looks like $n_0+is$ for some $i\in\mathbb{Z}$. (Hint. Write $n$ as $n=is+r$ for some $0\leq r<s$ and determine the value of $r$.)
+
+\solution
+Following the hint, we write $n=is+r$ for some $0\leq r<s$.
+\begin{flalign*}
+    Q & = nP              & \\
+      & = (is+r)P         & \\
+      & = i(sP)+rP        & \\
+      & = i\mathcal{O}+rP & \\
+      & = rP
+\end{flalign*}
+Since $n_0P$ is the smallest multiple of $P$ that is equal to $Q$, $r\geq n_0$.\\
+If $r=n_0$ we are done, so suppose instead that $r>n_0$.
+
+\noindent
+Then
+\begin{flalign*}
+    \mathcal{O} & = Q-Q      & \\
+                & = rP-n_0P  & \\
+                & = (r-n_0)P
+\end{flalign*}
+We know that $sP$ is the smallest (nonzero) multiple of $P$ that is equal to $\mathcal{O}$, so $r-n_0\geq s$.\\
+However, this contradicts $r<s$.\\
+Therefore $r=n_0$, which proves that $n=is+n_0$
+
+\newpage
+\problem Use the double-and-add algorithm (Table 6.3) to compute $nP$ in $E(\mathbb{F}_p)$ for the following curves and points, as we did in Fig. 6.4.
+\[E:Y^2=X^3+1828X+1675,p=1999,P=(1756,348),n=11\]
+
+\solution
+$11P=(1068,1540)$
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Step $i$ & $n$  & $Q=2^iP$      & $R$           \\\hline
+        $0$      & $11$ & $(1756,348)$  & $\mathcal{O}$ \\\hline
+        $1$      & $5$  & $(1526,1612)$ & $(1756,348)$  \\\hline
+        $2$      & $2$  & $(1657,1579)$ & $(1362,998)$  \\\hline
+        $3$      & $1$  & $(1849,225)$  & $(1362,998)$  \\\hline
+        $4$      & $0$  & $(586,959)$   & $(1068,1540)$ \\\hline
+    \end{tabular}
+    \caption{Compute $n\cdot P$ on $E\mod{p}$}
+\end{table}
+
+\newpage
+\problem Alice and Bob agree to use elliptic Diffie–Hellman key exchange with the prime, elliptic curve, and point
+\[p=2671,E:Y^2=X^2+171X+853,P=(1980,431)\in E(\mathbb{F}_{2671})\]
+
+\subproblem Alice sends Bob the point $Q_A=(2110,543)$. Bob decides to use the secret multiplier $n_B=1943$. What point should Bob send to Alice?
+
+\solution
+Bob sends the point $Q_B=1943P=(1432,667)\in E(\mathbb{F}_{2671})$ to Alice.
+
+\subproblem What is their secret shared value?
+
+\solution
+Their secret shared value is the $x$-coordinate of the point
+\begin{flalign*}
+    n_BQ_A & = 1943(2110,543)                     & \\
+           & = (2424,911)\in E(\mathbb{F}_{2671})
+\end{flalign*}
+Therefore, their shared secret is $x=2424$
+
+\newpage
+\problem Use the elliptic curve factorization algorithm to factor each of the numbers $N$ using the given elliptic curve $E$ and point $P$.
+
+\subproblem $N=589,E=Y^2=X^3+4X+9,P=(2,5)$
+
+\solution
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|rcl|}
+        \hline
+        $n$ & \multicolumn{3}{c|}{$n!\cdot P\mod{N}$}                     \\ \hline
+        $1$ & $P$                                     & $=$ & $(2,5)$     \\ \hline
+        $2$ & $2!\cdot P$                             & $=$ & $(564,156)$ \\ \hline
+        $3$ & $3!\cdot P$                             & $=$ & $(33,460)$  \\ \hline
+        $4$ & $4!\cdot P$                             & $=$ & $(489,327)$ \\ \hline
+    \end{tabular}
+    \caption{Factor Algorithm}
+\end{table}
+
+\subproblem $N=26167,E=Y^2=X^3+4X+128,P=(2,12)$
+
+\solution
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|rcl|}
+        \hline
+        $n$ & \multicolumn{3}{c|}{$n!\cdot P\mod{N}$}                         \\ \hline
+        $1$ & $P$                                     & $=$ & $(2,12)$        \\ \hline
+        $2$ & $2!\cdot P$                             & $=$ & $(23256,1930)$  \\ \hline
+        $3$ & $3!\cdot P$                             & $=$ & $(21778,1960)$  \\ \hline
+        $4$ & $4!\cdot P$                             & $=$ & $(22648,14363)$ \\ \hline
+        $5$ & $5!\cdot P$                             & $=$ & $(5589,11497)$  \\ \hline
+        $6$ & $6!\cdot P$                             & $=$ & $(7881,16198)$  \\ \hline
+    \end{tabular}
+    \caption{Factor Algorithm}
+\end{table}
+
+\newpage
+\subproblem $N=1386493,E=Y^2=X^3+3X-3,P=(1,1)$
+
+\solution
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|rcl|}
+        \hline
+        $n$  & \multicolumn{3}{c|}{$n!\cdot P\mod{N}$}                            \\ \hline
+        $1$  & $P$                                     & $=$ & $(1,1)$            \\ \hline
+        $2$  & $2!\cdot P$                             & $=$ & $(7,1386474)$      \\ \hline
+        $3$  & $3!\cdot P$                             & $=$ & $(1059434,60521)$  \\ \hline
+        $4$  & $4!\cdot P$                             & $=$ & $(81470,109540)$   \\ \hline
+        $5$  & $5!\cdot P$                             & $=$ & $(870956,933849)$  \\ \hline
+        $6$  & $6!\cdot P$                             & $=$ & $(703345,474777)$  \\ \hline
+        $7$  & $7!\cdot P$                             & $=$ & $(335675,1342927)$ \\ \hline
+        $8$  & $8!\cdot P$                             & $=$ & $(1075584,337295)$ \\ \hline
+        $9$  & $9!\cdot P$                             & $=$ & $(149824,1003869)$ \\ \hline
+        $10$ & $10!\cdot P$                            & $=$ & $(92756,1156933)$  \\ \hline
+    \end{tabular}
+    \caption{Factor Algorithm}
+\end{table}
+
+\subproblem $N=28102844557,E=Y^2=X^3+18X-453,P=(7,4)$
+
+\solution
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|rcl|}
+        \hline
+        $n$      & \multicolumn{3}{c|}{$n!\cdot P\mod{N}$}                                          \\ \hline
+        $1$      & $P$                                     & $=$      & $(7,4)$                     \\ \hline
+        $2$      & $2!\cdot P$                             & $=$      & $(1317321250,11471660625)$  \\ \hline
+        $3$      & $3!\cdot P$                             & $=$      & $(15776264786,10303407105)$ \\ \hline
+        $4$      & $4!\cdot P$                             & $=$      & $(27966589703,26991329662)$ \\ \hline
+        $5$      & $5!\cdot P$                             & $=$      & $(11450520276,14900134804)$ \\ \hline
+        $\vdots$ &                                         & $\vdots$ &                             \\ \hline
+        $24$     & $7!\cdot P$                             & $=$      & $(25959867777,9003083411)$  \\ \hline
+        $25$     & $8!\cdot P$                             & $=$      & $(10400016599,11715538594)$ \\ \hline
+        $26$     & $9!\cdot P$                             & $=$      & $(22632202481,6608272585)$  \\ \hline
+        $27$     & $10!\cdot P$                            & $=$      & $(25446531195,2223850203)$  \\ \hline
+        $28$     & $10!\cdot P$                            & $=$      & $(12412875644,7213676617)$  \\ \hline
+    \end{tabular}
+    \caption{Factor Algorithm}
+\end{table}
+
+\end{document}

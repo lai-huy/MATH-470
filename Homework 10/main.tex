@@ -105,24 +105,7 @@ We first find the implicit derivative
 
 \newpage
 \problem Make an addition table for $E$ over $\mathbb{F}_p$, as we did in Table 6.1
-
-\subproblem $E:Y^2=X^3+X+2$ over $\mathbb{F}_5$
-
-\solution $E(\mathbb{F}_5)=\{\mathcal{O},(1,2),(1,3),(4,0)\}$
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|c||c|c|c|c|}
-        \hline
-                      & $\mathcal{O}$ & $(1,2)$       & $(1,3)$       & $(4,0)$       \\ \hline\hline
-        $\mathcal{O}$ & $\mathcal{O}$ & $(1,2)$       & $(1,3)$       & $(4,0)$       \\ \hline
-        $(1,2)$       & $(1,2)$       & $(4,0)$       & $\mathcal{O}$ & $(1,3)$       \\ \hline
-        $(1,3)$       & $(1,3)$       & $\mathcal{O}$ & $(4,0)$       & $(1,2)$       \\ \hline
-        $(4,0)$       & $(4,0)$       & $(1,3)$       & $(1,2)$       & $\mathcal{O}$ \\\hline
-    \end{tabular}
-    \caption{Addition Table}
-\end{table}
-
-\subproblem $E:Y^2=X^3+2X+3$ over $\mathbb{F}_7$
+\[E:Y^2=X^3+2X+3\quad\text{over}\quad\mathbb{F}_7\]
 
 \solution $E(\mathbb{F}_7)=\{\mathcal{O},(2,1),(2,6),(3,1),(3,6),(6,0)\}$
 \begin{table}[!ht]
@@ -130,41 +113,15 @@ We first find the implicit derivative
     \begin{tabular}{|c||c|c|c|c|c|c|}
         \hline
                       & $\mathcal{O}$ & $(2,1)$       & $(2,6)$       & $(3,1)$       & $(3,6)$       & $(6,0)$       \\ \hline\hline
-        $\mathcal{O}$ & $\mathcal{O}$ & $(1,2)$       & $(1,3)$       & $(4,0)$       & $(3,6)$       & $(6,0)$       \\ \hline
-        $(2,1)$       & $(2,1)$       & $(3,6)$       & $\mathcal{O}$ & $(2,6)$       & $(6,0)$       & $(3,1)$       \\ \hline
-        $(2,6)$       & $(2,6)$       & $\mathcal{O}$ & $(3,1)$       & $(6,0)$       & $(2,1)$       & $(3,6)$       \\ \hline
-        $(3,1)$       & $(3,1)$       & $(2,6)$       & $(6,0)$       & $(3,6)$       & $\mathcal{O}$ & $(2,1)$       \\ \hline
-        $(3,6)$       & $(3,6)$       & $(6,0)$       & $(2,1)$       & $\mathcal{O}$ & $(3,1)$       & $(2,6)$       \\ \hline
-        $(6,0)$       & $(6,0)$       & $(3,1)$       & $(3,6)$       & $(2,1)$       & $(2,6)$       & $\mathcal{O}$ \\ \hline
+        $\mathcal{O}$ & $\mathcal{O}$ & $(2, 1)$      & $(2, 6)$      & $(3, 1)$      & $(3, 6)$      & $(6, 0)$      \\ \hline
+        $(2, 1)$      & $(2, 1)$      & $(3, 6)$      & $\mathcal{O}$ & $(2, 6)$      & $(6, 0)$      & $(3, 1)$      \\ \hline
+        $(2, 6)$      & $(2, 6)$      & $\mathcal{O}$ & $(3, 1)$      & $(6, 0)$      & $(2, 1)$      & $(3, 6)$      \\ \hline
+        $(3, 1)$      & $(3, 1)$      & $(2, 6)$      & $(6, 0)$      & $(3, 6)$      & $\mathcal{O}$ & $(2, 1)$      \\ \hline
+        $(3, 6)$      & $(3, 6)$      & $(6, 0)$      & $(2, 1)$      & $\mathcal{O}$ & $(3, 1)$      & $(2, 6)$      \\ \hline
+        $(6, 0)$      & $(6, 0)$      & $(3, 1)$      & $(3, 6)$      & $(2, 1)$      & $(2, 6)$      & $\mathcal{O}$ \\ \hline
     \end{tabular}
     \caption{Addition Table}
 \end{table}
-
-\newpage
-\subproblem $E:Y^2=X^3+2X+5$ over $\mathbb{F}_{11}$
-
-\solution $E(\mathbb{F}_{11})=\{\mathcal{O},(0,4),(0,7),(3,4),(3,7),(4,0),(8,4),(8,7),(9,2),(9,9)\}$
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|}
-        \hline
-                      & $\mathcal{O}$ & $(0,4)$       & $(0,7)$       & $(3,4)$       & $(3,7)$       & $(4,0)$       & $(8,4)$       & $(8,7)$       & $(9,2)$       & $(9,9)$       \\ \hline\hline
-        $\mathcal{O}$ & $\mathcal{O}$ & $(0,4)$       & $(0,7)$       & $(3,4)$       & $(3,7)$       & $(4,0)$       & $(8,4)$       & $(8,7)$       & $(9,2)$       & $(9,9)$       \\ \hline
-        $(0,4)$       & $(0,4)$       & $(9,2)$       & $\mathcal{O}$ & $(8,7)$       & $(9,9)$       & $(8,4)$       & $(3,7)$       & $(4,0)$       & $(3,4)$       & $(0,7)$       \\ \hline
-        $(0,7)$       & $(0,7)$       & $\mathcal{O}$ & $(9,9)$       & $(9,2)$       & $(8,4)$       & $(8,7)$       & $(4,0)$       & $(3,4)$       & $(0,4)$       & $(3,7)$       \\ \hline
-        $(3,4)$       & $(3,4)$       & $(8,7)$       & $(9,2)$       & $(8,4)$       & $\mathcal{O}$ & $(9,9)$       & $(0,7)$       & $(3,7)$       & $(4,0)$       & $(0,4)$       \\ \hline
-        $(3,7)$       & $(3,7)$       & $(9,9)$       & $(8,4)$       & $\mathcal{O}$ & $(8,7)$       & $(9,2)$       & $(3,4)$       & $(0,4)$       & $(0,7)$       & $(4,0)$       \\ \hline
-        $(4,0)$       & $(4,0)$       & $(8,4)$       & $(8,7)$       & $(9,9)$       & $(9,2)$       & $\mathcal{O}$ & $(0,4)$       & $(0,7)$       & $(3,7)$       & $(3,4)$       \\ \hline
-        $(8,4)$       & $(8,4)$       & $(3,7)$       & $(4,0)$       & $(0,7)$       & $(3,4)$       & $(0,4)$       & $(9,2)$       & $\mathcal{O}$ & $(9,9)$       & $(8,7)$       \\ \hline
-        $(8,7)$       & $(8,7)$       & $(4,0)$       & $(3,4)$       & $(3,7)$       & $(0,4)$       & $(0,7)$       & $\mathcal{O}$ & $(9,9)$       & $(8,4)$       & $(9,2)$       \\ \hline
-        $(9,2)$       & $(9,2)$       & $(3,4)$       & $(0,4)$       & $(4,0)$       & $(0,7)$       & $(3,7)$       & $(9,9)$       & $(8,4)$       & $(8,7)$       & $\mathcal{O}$ \\ \hline
-        $(9,9)$       & $(9,9)$       & $(0,7)$       & $(3,7)$       & $(0,4)$       & $(4,0)$       & $(3,4)$       & $(8,7)$       & $(9,2)$       & $\mathcal{O}$ & $(8,4)$       \\ \hline
-    \end{tabular}
-    \caption{Addition Table}
-\end{table}
-
-\noindent
-The code to developed to calculate this table is included at the end of this document.
 
 \newpage
 \problem Let $E$ be an elliptic curve over $\mathbb{F}_p$ and let $P$ and $Q$ be points in $E(\mathbb{F}_p)$. Assume that $Q$ is a multiple of $P$ and let $n_0>0$ be the smallest solution to $Q=nP$. Also let $s>0$ be the smallest solution to $sP=\mathcal{O}$. Prove that every solution to $Q=nP$ looks like $n_0+is$ for some $i\in\mathbb{Z}$. (Hint. Write $n$ as $n=is+r$ for some $0\leq r<s$ and determine the value of $r$.)
@@ -229,28 +186,12 @@ Their secret shared value is the $x$-coordinate of the point
     n_BQ_A & = 1943(2110,543)                     & \\
            & = (2424,911)\in E(\mathbb{F}_{2671})
 \end{flalign*}
-Therefore, their shared secret is $x=2424$
+Therefore, their shared secret is $x=2424$.\\
+The code to help calculate this point is included at the end of this document.
 
 \newpage
 \problem Use the elliptic curve factorization algorithm to factor each of the numbers $N$ using the given elliptic curve $E$ and point $P$.
-
-\subproblem $N=589,E=Y^2=X^3+4X+9,P=(2,5)$
-
-\solution
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|c|rcl|}
-        \hline
-        $n$ & \multicolumn{3}{c|}{$n!\cdot P\mod{N}$}                     \\ \hline
-        $1$ & $P$                                     & $=$ & $(2,5)$     \\ \hline
-        $2$ & $2!\cdot P$                             & $=$ & $(564,156)$ \\ \hline
-        $3$ & $3!\cdot P$                             & $=$ & $(33,460)$  \\ \hline
-        $4$ & $4!\cdot P$                             & $=$ & $(489,327)$ \\ \hline
-    \end{tabular}
-    \caption{Factor Algorithm}
-\end{table}
-
-\subproblem $N=26167,E=Y^2=X^3+4X+128,P=(2,12)$
+\[N=26167,E=Y^2=X^3+4X+128,P=(2,12)\]
 
 \solution
 \begin{table}[!ht]
@@ -268,69 +209,9 @@ Therefore, their shared secret is $x=2424$
     \caption{Factor Algorithm}
 \end{table}
 
-\newpage
-\subproblem $N=1386493,E=Y^2=X^3+3X-3,P=(1,1)$
-
-\solution
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|c|rcl|}
-        \hline
-        $n$  & \multicolumn{3}{c|}{$n!\cdot P\mod{N}$}                            \\ \hline
-        $1$  & $P$                                     & $=$ & $(1,1)$            \\ \hline
-        $2$  & $2!\cdot P$                             & $=$ & $(7,1386474)$      \\ \hline
-        $3$  & $3!\cdot P$                             & $=$ & $(1059434,60521)$  \\ \hline
-        $4$  & $4!\cdot P$                             & $=$ & $(81470,109540)$   \\ \hline
-        $5$  & $5!\cdot P$                             & $=$ & $(870956,933849)$  \\ \hline
-        $6$  & $6!\cdot P$                             & $=$ & $(703345,474777)$  \\ \hline
-        $7$  & $7!\cdot P$                             & $=$ & $(335675,1342927)$ \\ \hline
-        $8$  & $8!\cdot P$                             & $=$ & $(1075584,337295)$ \\ \hline
-        $9$  & $9!\cdot P$                             & $=$ & $(149824,1003869)$ \\ \hline
-        $10$ & $10!\cdot P$                            & $=$ & $(92756,1156933)$  \\ \hline
-    \end{tabular}
-    \caption{Factor Algorithm}
-\end{table}
-
-\newpage
-\subproblem $N=28102844557,E=Y^2=X^3+18X-453,P=(7,4)$
-
-\solution
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|c|rcl|}
-        \hline
-        $n$  & \multicolumn{3}{c|}{$n!\cdot P\mod{N}$}                                      \\ \hline
-        $1$  & $1!\cdot P$                             & $=$ & $(7, 4)$                     \\ \hline
-        $2$  & $2!\cdot P$                             & $=$ & $(1317321250, 11471660625)$  \\ \hline
-        $3$  & $3!\cdot P$                             & $=$ & $(15776264786, 10303407105)$ \\ \hline
-        $4$  & $4!\cdot P$                             & $=$ & $(27966589703, 26991329662)$ \\ \hline
-        $5$  & $5!\cdot P$                             & $=$ & $(11450520276, 14900134804)$ \\ \hline
-        $6$  & $6!\cdot P$                             & $=$ & $(4793277431, 9752445932)$   \\ \hline
-        $7$  & $7!\cdot P$                             & $=$ & $(12906753800, 1428645019)$  \\ \hline
-        $8$  & $8!\cdot P$                             & $=$ & $(1616742079, 27619685544)$  \\ \hline
-        $9$  & $9!\cdot P$                             & $=$ & $(27320991957, 3646973433)$  \\ \hline
-        $10$ & $10!\cdot P$                            & $=$ & $(2545790696, 7677839234)$   \\ \hline
-        $11$ & $11!\cdot P$                            & $=$ & $(18170261705, 12466766800)$ \\ \hline
-        $12$ & $12!\cdot P$                            & $=$ & $(4901920162, 11601259538)$  \\ \hline
-        $13$ & $13!\cdot P$                            & $=$ & $(15079106517, 15513790103)$ \\ \hline
-        $14$ & $14!\cdot P$                            & $=$ & $(5984263366, 23520062125)$  \\ \hline
-        $15$ & $15!\cdot P$                            & $=$ & $(23472354261, 24075984511)$ \\ \hline
-        $16$ & $16!\cdot P$                            & $=$ & $(24690955854, 627519762)$   \\ \hline
-        $17$ & $17!\cdot P$                            & $=$ & $(19558800958, 2490325171)$  \\ \hline
-        $18$ & $18!\cdot P$                            & $=$ & $(18404539321, 19844111656)$ \\ \hline
-        $19$ & $19!\cdot P$                            & $=$ & $(21523159699, 7698818121)$  \\ \hline
-        $20$ & $20!\cdot P$                            & $=$ & $(13876671025, 10706479792)$ \\ \hline
-        $21$ & $21!\cdot P$                            & $=$ & $(21288501342, 22276398067)$ \\ \hline
-        $22$ & $22!\cdot P$                            & $=$ & $(9646041624, 223733998)$    \\ \hline
-        $23$ & $23!\cdot P$                            & $=$ & $(1704727047, 8275613638)$   \\ \hline
-        $24$ & $24!\cdot P$                            & $=$ & $(25959867777, 9003083411)$  \\ \hline
-        $25$ & $25!\cdot P$                            & $=$ & $(10400016599, 11715538594)$ \\ \hline
-        $26$ & $26!\cdot P$                            & $=$ & $(22632202481, 6608272585)$  \\ \hline
-        $27$ & $27!\cdot P$                            & $=$ & $(25446531195, 2223850203)$  \\ \hline
-        $28$ & $28!\cdot P$                            & $=$ & $(12412875644, 7213676617)$  \\ \hline
-    \end{tabular}
-    \caption{Factor Algorithm}
-\end{table}
+\noindent
+$26167=191\cdot137$\\
+The code to help calculate this point is included at the end of this document.
 
 \newpage
 \problem This exercise asks you to compute some numerical instances of the elliptic curve digital signature algorithm described in Table 6.7 for the public parameters
@@ -380,8 +261,9 @@ We can then forge a signature on the document $d=516$ using the ephemeral key $e
 To check that the signature is valid, we compute
 \[v_1G+v_2V=(3923,12121)\in E(\mathbb{F}_p)\]
 and
-\[x(v1G+v2V)\mod{q}=3923\mod{1321}=1281\]
+\[x(v_1G+v_2V)\mod{q}=3923\mod{1321}=1281\]
 which is equal to $s_1$
+
 \newpage
 \inputminted{python}{ecc_finite.py}
 

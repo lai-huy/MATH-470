@@ -187,7 +187,6 @@ Their secret shared value is the $x$-coordinate of the point
            & = (2424,911)\in E(\mathbb{F}_{2671})
 \end{flalign*}
 Therefore, their shared secret is $x=2424$.\\
-The code to help calculate this point is included at the end of this document.
 
 \newpage
 \problem Use the elliptic curve factorization algorithm to factor each of the numbers $N$ using the given elliptic curve $E$ and point $P$.
@@ -210,8 +209,19 @@ The code to help calculate this point is included at the end of this document.
 \end{table}
 
 \noindent
-$26167=191\cdot137$\\
-The code to help calculate this point is included at the end of this document.
+Let $Q=6!\cdot P\mod{N}$
+\begin{flalign*}
+    7\cdot Q & = Q+2Q+4Q                               & \\
+             & = (7881,16198)+(4533,6092)+(20165,3476) & \\
+             & = (11761, 23455)+(20165,3476)
+\end{flalign*}
+\begin{flalign*}
+    m & \equiv (3476-23455)\cdot(20165-11761)^{-1}\mod{N} & \\
+      & \equiv (6188)(8404)^{-1}\mod{N}
+\end{flalign*}
+Running the Extended Euclidean algorithm to find $\gcd(8404,N)$ gives us a non-trivial factor of $N$, namely $191$.\\
+$N=137\cdot191$\\
+The code to help calculate this is included at the end of this document.
 
 \newpage
 \problem This exercise asks you to compute some numerical instances of the elliptic curve digital signature algorithm described in Table 6.7 for the public parameters

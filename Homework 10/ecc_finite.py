@@ -1,4 +1,5 @@
 from math import inf, isinf
+from numpy import gcd
 
 
 class Curve:
@@ -97,3 +98,20 @@ class Point:
             current = current + current
             scalar >>= 1
         return result
+
+
+def main():
+    Point.I = Point(inf, inf, None)
+    a, b, N = 4, 128, 26167
+    curve = Curve(a, b, N)
+    P = Point(2, 12, curve)
+    Q = 6 * 5 * 4 * 3 * 2 * 1 * P
+    A = 3 * Q
+    B = 4 * Q
+    g = gcd((B.x - A.x) % Q.curve.N, Q.curve.N)
+    print(g, N // g)
+    return
+
+
+if __name__ == "__main__":
+    main()

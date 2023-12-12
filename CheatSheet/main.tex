@@ -1,0 +1,304 @@
+\documentclass[10pt]{article}
+
+\usepackage[affil-it]{authblk}
+% \usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithm, algorithmicx, algpseudocode}
+\usepackage{amsfonts, amsthm, amsmath, amssymb}
+\usepackage{color}
+\usepackage{cancel, textcomp}
+\usepackage[mathscr]{euscript}
+\usepackage{fancyhdr, fancyvrb}
+\usepackage{fullpage}
+\usepackage[a4paper,left=1pt,right=1pt,top=1pt,bottom=1pt]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{latexsym}
+\usepackage{mathtools}
+\usepackage{times}
+\usepackage{xcolor}
+\usepackage{physics}
+\usepackage{tikz-cd}
+\usepackage[warnunknown, fasterrors, mathletters]{ucs}
+\usepackage[nointegrals]{wasysym}
+\usepackage{multicol}
+\DeclareMathOperator{\ord}{order}
+\everymath{\displaystyle}
+
+\begin{document}
+\begin{multicols}{2}
+    \noindent
+    \textbf{An Aggie does not lie, cheat or steal or tolerate those who do}. $\mathbb{P}$ is the set of primes. $\mathbb{P}^{odd}$ is the set of odd primes.
+
+    \noindent
+    $a\mid b\land b\mid c\rightarrow a\mid c$.
+    $a\mid b\land b\mid a\rightarrow a=\pm b$.\\
+    $a\mid b\land a\mid c\rightarrow \forall u,v\in\mathbb{Z},a\mid(ub+vc)$
+
+    \noindent
+    \textbf{Extended Euclidean Algorithm}: $\exists u,v\in\mathbb{Z},au+bv=\gcd(a,b)$\\
+    $\exists u,v\in\mathbb{Z},au+bv=c\rightarrow\gcd(a,b)\mid c$\\
+    \textbf{Fermat's Little Theorem}: $p\in\mathbb{P}\rightarrow \forall a\in(\mathbb{Z}/p\mathbb{Z})^*,a^{p-1}\equiv 1\mod{p}$\\
+    $n$ is a composite number and $b^n\equiv b\mod{n},\forall b\in\mathbb{Z}\rightarrow n$ is a \textbf{Carmichael number}.
+
+    \noindent
+    \textbf{Order}: The smallest $k\in\mathbb{Z^+}$ such that $g^k\equiv 1\mod{p}$\\
+    \textbf{Primitive Root}: $g\in(\mathbb{Z}/p\mathbb{Z})^*,\ord(g)=p-1\rightarrow g$ is a primitive root.\\
+    \textbf{Inverse} of $a \mod p \leftrightarrow \exists b\in\mathbb{Z},a\cdot b \equiv 1 \mod p$. $a \nmid p$\\
+    Let $m\in\mathbb{Z}^{odd}$. $\frac{(b-1)m+1}{b}\equiv b^{-1}\mod{m}$\\
+    \textbf{Euler's Totient Function}: $\phi(n)=$ the number of invertible elements in $\mathbb{Z}/n\mathbb{Z}$\\
+    \textbf{Primitive Root Theorem}: There are exactly $\phi(p-1)$ primitive roots $\mod{p}$\\
+    $p\in \mathbb{P} : q^{\frac{p-1}{2}} \in \mathbb{P}, g \in (\mathbb Z / p \mathbb{Z})^*$. $\ord{(g)}=\{1,2,q,2q\}$.\\
+    $p\in \mathbb{P},g$ proot, $a\in\mathbb{Z}\rightarrow \ord{(g^a)}=\frac{p-1}{\gcd(a,p-1)}$
+
+    \noindent
+    \textbf{Discrete log}: Given $p\in\mathbb{P}$, primitive root $g$, target value $y$. Calculate $x$ such that $g^{x}\equiv y\mod{p}$\\
+    We assume that there is no efficient algorithm to solve DLP or DHP.
+
+    \noindent
+    \textbf{Diffie-Hellman Problem}. Given $p\in\mathbb{P}$, primitive root $g$. $A=g^a\mod{p},B=g^b\mod{p}$ compute $g^{ab}\mod{p}$, $DHP\leq_p DLP$\\
+    \textbf{ElGamal}. Encrypt: $(c_1,c_2)=(g^k,mB^k)$, Decrypt: $m\equiv (c_1^k)^{-1}c_2\mod{p}$, $DHP\leq_p ElGamal \leq_p DLP$. Insecure against Chosen Ciphertext attack.\\
+    \textbf{RSA}. $N=pq,p,q\in\mathbb{P},e\in\mathbb{Z},\gcd(e,\phi(N))=1,ed\equiv 1\mod{\phi(N)}$. Encrypt: $C=m^e\mod{N}$. Decrypt: $m\equiv C^d\mod{N}$\\
+    $RSA\leq_p Factoring$. We assume we cannot efficiently factor integers.\\
+    Due to Pollard's $p-1$ algorithm, if $p-1$ is $B$-smooth for small $B$, RSA can be efficiently decrypted.\\
+    If $N$ can be factored, signature can be forged. Signature can be efficiently forged on some document, unknown for any document.\\
+    A square root of $a$ modulo $p$ is an integer $x$ such that $x^2\equiv a \pmod p$.
+    Computing square roots mod $N$ of arbitrary quadratic residues $N$ is of same difficulty as factoring.\\
+    For $N=pq$, there are $0,2,4$ square roots of $a\mod{N}$. If $N|a$, there are $0$. If $\gcd(a,N)=p\lor q$, there are $2$.  If $\gcd(a,N)=1$, there are $4$.\\
+    For $N=pq$ where $p,q\in \mathbb{P}^{odd}$ are distinct, if $\exists a,b \in \mathbb{Z}, a^2\equiv b^2 \pmod N\land a\not \equiv \pm b\pmod N$, then $\gcd(a \pm b, N)$ is a nontrivial factor of $N$.
+
+    \noindent
+    \textbf{Chinese Remainder Theorem:} Let $m_1,\cdots,m_k$ be pairwise co-prime integers. $\forall a_1\cdot a_k\in\mathbb{Z}$ the system of congruences\\
+    $x\equiv a_1\mod{m_1},x\equiv a_2\mod{m_2},\cdots,x\equiv a_k\mod{m_k}$ has a unique solution $\mod{m_1m_2\cdots m_k}$\\
+    $\exists x,x^2\equiv b\mod{p}\rightarrow \forall e\geq1,\exists x,x^2\equiv b\mod{p^e}$
+
+    \noindent
+    $\gcd(a_1,a_2,\cdots,a_k)=1\rightarrow \exists u_1,u_2,\cdots,u_k\in\mathbb{Z},a_1u_1+a_2u_2+\cdots+a_ku_k=1$\\
+    \textbf{Fermat–Euler theorem}: Let $N=pq,p,q\in\mathbb{P}$. Let $a\in\mathbb{Z}$.\\
+    $\gcd(a,N)=1\rightarrow a^{\phi(N)}\equiv 1\mod{N}$
+
+    \noindent
+    A \textbf{group} is a set $G$ together with a binary operation $*:G*G\in G$ satisfying the following three properties:\\
+    \textbf{Identity Law}: $\exists e\in G,\forall g\in G, e*g=g*e=g$.\\
+    \textbf{Inverse Law}: $\forall g\in G,\exists h\in G, g*h=e=h*g$.\\
+    \textbf{Associative Law}: $\forall g,h,k\in G,(g*h)*k=g*(h*k)$\\
+    An \textbf{abelian} group satisfies the \textbf{Commutative Law}: $\forall g,h\in G,g*h=h*g$\\
+    Let $\mathcal{G}=(G,*)$ is a finite group $\rightarrow \forall g\in G,\ord(g)$ is finite.\\
+    Let $g\in\mathcal{G},\ord{(g)}=d\land g^k=e\rightarrow d\mid k$\\
+    \textbf{Lagrange's Theorem}: Let $\mathcal{G}=(G,*)$ be a finite group. Let $g\in\mathcal{G}$. $\ord{(g)}\mid |G|$.\\
+    $\forall g\in (G,*), N = \ord(g), d \mid N, \ord(g^d) = \frac{N}{d}$.\\
+    $\exists x, ax\equiv c\mod m \leftrightarrow \gcd(a,m)|c$.
+
+    \noindent
+    $n$ is a composite number $\leftrightarrow$ $n$ has a \textbf{Miller-Rabin} witness.\\
+    Let $p\in\mathbb{P}$. Let $a\in(\mathbb{Z}/p\mathbb{Z})^*$. $x,y\in\mathbb{Z},x=y\mod{p-1}\rightarrow a^x\equiv a^y\mod{p}$
+
+    \noindent
+    $n\in\mathbb{Z}$ is \textbf{\textit{B}-smooth} $\leftrightarrow$ every prime factor of $n$ is at most $B$.\\
+    Let $N\in\mathbb{Z}^+$. Let $f$ denote the polynomial $f(x)=x^2-N$. Let $p\in\mathbb{P}^{odd}$. Let $a\in\mathbb{Z}$. $a^2\equiv N\mod{p}\leftrightarrow p\mid f(a)$
+
+    \noindent
+    Let $m\in\mathbb{Z}$. $a$ is a \textbf{quadratic residue} $\leftrightarrow \exists c\in\mathbb{Z},c^2\equiv a\mod{m}$\\
+    Let $p\in\mathbb{P}^{odd},g$ is proot, $a\equiv g^k\mod{p}$. \\$a$ is a QR $\mod{p}\leftrightarrow k\mid 2$\\
+        If $p\in \mathbb{P}, p\equiv 3\mod 4,\text{and $a$ is a QR }, a^{\frac{p-1}{4}}$ is a sqroot of $a \mod p$.\\
+    $p\in \mathbb{P}^{\textit{odd}}$, there exists exactly $2$ integers $x \in \mathbb{Z}/p\mathbb{Z}$ such that $x^2 \equiv 1 \mod p$. \\
+    $p$ is an odd prime power, there are exactly $2$ square roots of $1 \mod p$.\\
+        The number of square roots of $1\mod{2^k}=\begin{cases}
+        1 & \text{if } k=1     \\
+        2 & \text{if } k=2     \\
+        4 & \text{if } k\geq 3
+    \end{cases}$
+
+        \noindent
+        \textbf{Legendre Symbol}: Let $p\in\mathbb{P}^{odd},\left(\frac{a}{p}\right)=\begin{cases}
+        1  & \text{if } a \text{ is a QR}\mod{p}  \\
+        -1 & \text{if } a \text{ is a NQR}\mod{p} \\
+        0  & \text{if } a\equiv 0\mod{p}
+    \end{cases}$\\
+        \textbf{Euler's Criterion}: $a^{\frac{p-1}{2}}\equiv\left(\frac{a}{p}\right)\mod{p}$\\
+    $p\in \mathbb{P}^{odd},a^{\frac{p-1}{2}}\equiv\begin{cases}
+        1  & \text{if } a \text{ is a QR}  \\
+        -1 & \text{if } a \text{ is a NQR}
+    \end{cases}$.\\
+        \textbf{Gauss Theorem}: Let $a,b\in\mathbb{Z}^{odd}$. $\left(\frac{-1}{b}\right)=\begin{cases}
+        1  & \text{if } b\equiv1\mod{4} \\
+        -1 & \text{if } b\equiv3\mod{4}
+    \end{cases}$\\
+    $\left(\frac{2}{b}\right)=\begin{cases}
+        1  & \text{if } b\equiv\pm1\mod{8} \\
+        -1 & \text{if } b\equiv\pm3\mod{8}
+    \end{cases}$\\
+    $\left(\frac{a}{b}\right)=\begin{cases}
+        \left(\frac{b}{a}\right)  & \text{if } a\equiv1\mod{4}\lor b\equiv1\mod{4}  \\
+        \left(-\frac{b}{a}\right) & \text{if } a\equiv3\mod{4}\land b\equiv3\mod{4}
+    \end{cases}$\\
+    $\left(\frac{a}{b}\right)=1\not\rightarrow a$ is a qr. $\left(\frac{a}{b}\right)=-1\rightarrow a$ is a nqr.
+
+        \noindent
+        \textbf{Honest Verifier Zero Knowledge}: $\exists$ an efficient algorithm that can produce transcripts that are indistinguishable from the transcripts of the an honest interaction.\\
+        \textbf{Completeness}: If the statement is true, an honest verifier will be convinced of this fact by an honest prover.\\
+        \textbf{Soundness}: If the statement is false, no cheating prover can convince an honest verifier that it is true, except with some small probability. Cannot produce $2$ unique transcripts without knowing the key.\\
+        \textbf{Zero Knowledge}: If the statement is true, no verifier learns anything other than the fact that the statement is true. To prove, apply the protocol in reverse.
+
+        \noindent
+        \textbf{Elliptic Curve}: $E:y^2=x^3+ax+b,4a^3+27b^2\neq0$\\
+    $m=\begin{cases}
+        \frac{y_Q-y_P}{x_Q-x_P} & \text{if } x_P\neq x_Q \\
+        \frac{3x_P^2+a}{2y_P}   & \text{if } P=Q
+    \end{cases}$\\
+    $x_{P+Q}=m^2-x_P-x_Q,y_{P+Q}=m(x_P-x_{P+Q})-y_P$\\
+        \textbf{Hasse bound}: Every Elliptic Curve over $\mathbb{F}_p$ has a size\\ $[p+1-2\sqrt{p},p+1+2\sqrt{p}]$. \\ Average size $p+1$ because half are QR, max size $2p+1$.\\
+        Size of $E$ calculation in $\mathcal{O}(\log^6 p)$ by Schoof, $\mathcal{O}(\log^4 p)$ with SEA.\\
+        Order of Point $P$ is smallest $k$ such that $P\cdot k = \mathcal{O}$, $\mathcal{O}$ is point at infinity.
+
+        \noindent
+        \textbf{Birthday Paradox}: Assume a uniformly random distribution of birthdays. You need 23 people to have a likely chance on two of them share a birthday. However you need 253 people to have a likely chance that one of them shares your birthday.
+
+        \noindent
+        \textbf{E3Q7 Proof}:\\
+    $p\in\mathbb{P},p=2q+1$. Prove that there exists as element of $(\mathbb{Z}/p\mathbb{Z})^*$ with order $q$.\\
+    See Primitive Root Theorem.
+\end{multicols}
+
+\newpage
+\begin{multicols}{2}
+    \noindent
+    \textbf{EC DLP}: Given $p\in\mathbb{P}^{odd},E\in\mathbb{F}_p$, base point $P\in E$, target point $Q\in E$. Calculate $n$ such that $Q\equiv nP\mod{p}$.
+    Fastest known solution $O(\sqrt{p}).$\\
+    \textbf{EC DHP}: Given $p,E\in\mathbb{F}_p,P\in E,Q_A=n_AP,Q_B=n_BP$. Compute $n_An_BP\mod{p}$. EC DHP $\leq_p$ EC DLP\\
+    \textbf{EC ElGamal}: Public: $p\in\mathbb{P},E,\mathbb{F}_p,P\in E$. $Q_A = n_A P$.\\
+    Encrypt: $(c_1,c_2)=(kP,m+kQ_A)$. Decrypt: $m=c_2-n_Ac_1$. $m$ encoded as point on $P$.
+
+    \noindent
+    \textbf{Pohlig-Hellman Algorithm:}\\
+    Calculates Discrete Log, can be efficient for DLP of small order.
+
+    \noindent
+    \textbf{Collision Algorithm} $\mathcal{O}(n\log{n})\approx\mathcal{O}(2^{\frac{k}{6}}\cdot k)$\\
+    Input: $\mathcal{G}=(G,*)$ finite group, $g\in\mathcal{G},h\in\mathcal{G},\ord{(g)}=d$
+    \begin{enumerate}
+        \item $n=\left\lfloor\sqrt{d}\right\rfloor+1$
+        \item $L_1=\left\{g^0,g^1,\cdots,g^n\right\},L_2=\left\{hg^{-0},hg^{-n},\cdots,hg^{-n^2}\right\}$
+        \item Find $0\leq i,j<n$ such that $g^i=hg^{-jn}$
+        \item Return $i+jn$
+    \end{enumerate}
+
+    \noindent
+    \textbf{EC DLP Collision Algorithm} $\mathcal{O}(\sqrt p)$
+    \begin{enumerate}
+        \item $L_1 = \{y_1 P, y_2 P, \dots y_r P\}, L_2 = \{z_1 P + Q, z_2 P + Q, \dots z_r P + Q\}$
+        \item Find collision $y_i P = z_jP+Q$
+        \item $Q = (y_i - z_i)P$
+    \end{enumerate}
+    If $r \approx 3\sqrt{\text{order} P} \leq 3 \sqrt{P}$, collision odds $\geq 99\%$.
+
+    \noindent
+    \textbf{Pollard's} $\rho$ \textbf{algorithm}\\
+    Input: $x_0\in S,y_0\in S,n\in\mathbb{Z},f:S\rightarrow S$
+    \begin{enumerate}
+        \item $d=0$
+        \item Repeat until $1<d<n$
+        \item $x_i=f(x_{i-1}),y_i=f(f(y_{i-1}))$
+        \item $d=\gcd(x-y,n)$
+    \end{enumerate}
+
+    \noindent
+    \textbf{Schnorr Digital Signature Algorithm}\\
+    Apply Fiat-Shamir Transform to ZKP\\
+    $p\in\mathbb{Z},p=kq+1$ for some small $k$, $g,\ord{(g)}=q$\\
+    Secret key $a\in\mathbb{Z}/q\mathbb{Z}$. Public key $A\equiv g^a\mod{p}$. $H(C,D)$ random oracle.\\
+    Sign:
+    \begin{enumerate}
+        \item ``commitment": Pick random $c\in\mathbb{Z}/q\mathbb{Z}$, compute $C\equiv g^c\mod{p}$
+        \item ``challenge": $h=H(C,D)$
+        \item ``response": $r=c+ah$
+        \item ``signature": $S=(C,r)$
+    \end{enumerate}
+    Verify: $g^r\equiv C\cdot A^h\mod{p}$
+
+    % \newcolumn
+    \noindent
+    \textbf{EC Schnorr DSA}:\\
+    $p\in\mathbb{P},E\in\mathbb{F}_p,P\in E$\\
+    Secret key $n_A\in\mathbb{Z}/q\mathbb{Z}$. Public key $Q_A\equiv n_AP\mod{p}$. $H(C,D)$ random oracle.\\
+    Sign:
+    \begin{enumerate}
+        \item ``commitment": Pick random $c\in\mathbb{Z}/q\mathbb{Z}$, compute $C\equiv cP\mod{p}$
+        \item ``challenge": $h=H(C,D)$
+        \item ``response": $r=c+n_Ah$
+        \item ``signature": $S=(C,r)$
+    \end{enumerate}
+    Verify: $rP\equiv C+hQ_A$
+
+    \newcolumn
+    \noindent
+    \textbf{Lenstra's EC Factoring Algorithm}
+    Find $k$ such that $k!\cdot P\equiv \mathcal{O}\mod{p}$ and $k!\cdot Q\not\equiv\mathcal{O}\mod{p}$\\
+    Similar to Pollard's $p-1$ algorithm, but for EC.\\
+    Input: $p\in\mathbb{P},E\in\mathbb{F}_p,P\in E$
+    \begin{enumerate}
+        \item $j=2$
+        \item Repeat until slope calculation failure
+        \item $P=jP$
+        \item $j=j+1$
+    \end{enumerate}
+    When calculating the inverse of the difference of $x$ coordinates in calculating the slope.\\
+    $\gcd(\Delta x,N)$ is the factor.
+
+
+    \noindent
+    \textbf{Dual EC Deterministic Random Bit Generator}\\
+    Public fields: $p\in \mathbb{P}, E \in \mathbb{F}_p, P,Q \in E$.\\
+    Initial seed = $s_0$. Future seeds calculated as $S = \{x(s_0P), x(s_1P),\dots\}$\\
+    Random numbers generated as $R = \{x(s_1Q), x(s_2Q), \dots\}$, with $16$ most significant bits discarded.\\
+    Is innately a bad PRNG, attacker can predict bits with $50.11$ accuracy.
+
+    \noindent
+    \textbf{Dual EC DRBG "Backdoor"}\\
+    If $n$ of $Q = nP$ is known, can predict all future outputs.\\
+    Known to hacker: $n, r_i=x(s_iQ)$\\
+    Brute force / guess $16$ bits, $2^{16} = 65536$ possibilities to get point $s_i(Q)$.\\
+    Compute $n\cdot (s_iQ)=s_i \cdot (nQ) = s_i P = s_{i+1}$\\
+    Can be closed by discarding more bits, or showing how $Q$ was chosen.\\
+
+    \noindent
+    \textbf{ZKP and DSA}: $p\in \mathbb{P}, p=2q+1,q\in \mathbb{P}, g\in(\mathbb{Z}/p\mathbb{Z})^*$ has order $q$. Let $\langle g\rangle=\{1,g,g^2,\dots,g^{q-1}\mod p\}$. Let $A\in\langle g\rangle$ such that $g^a \equiv A \pmod p$ for secret key $a$,
+    \begin{itemize}
+        \item Peggy sends random commitment $C\in\langle g\rangle$
+        \item Victor sends random challenge $h\in \mathbb{Z}/q\mathbb{Z}$
+        \item Peggy sends response $r\in \mathbb{Z}/q\mathbb{Z}$
+        \item Victor accepts if $g^r\equiv C\cdot A^h \mod p$
+    \end{itemize}
+    Produce indistinguishable transcripts (\textbf{ZK}):\\
+    Choose random $h\in \mathbb{Z}/q\mathbb{Z}$\\
+    Choose random $c\in \mathbb{Z}/q\mathbb{Z}$\\
+    Define $C=g^c\cdot A^{-h}, r=c$\\
+    Transcript = $(C,h,r)$\\
+    \textbf{Soundness}: given $(C,h_1,r_1), (C,h_2,r_2), h_1\not \equiv h_2 \mod p$\\
+    $C \equiv g^{r_1}A^{h_1}\equiv g^{r_2}A^{h_2}$\\
+    $a=(r_2-r_1)\cdot(h_2-h_1)^{-1}\mod q$\\
+    Turn this into \textbf{Signature}:\\
+    Secret key $a$.
+    $C=g^c$\\
+    $h = H(C,D)\mod q$, $H$ is random oracle\\
+    $r = c+ah \mod q$\\
+    Send $S=(C_0,C_1,\cdots,C_i,r_0,r_1,\cdots,r_i)$\\
+    Victor generates $C$ and Peggy responds with $r$ until Victor is ``convinced" that Peggy knows the secret key.
+
+    \noindent
+    \textbf{Tonelli-Shanks Algorithm} (calculate sqroot in $O(\sqrt{n})$):\\
+    Let $p\in\mathbb{P}^{odd},p-1=2^kQ,Q\equiv1\mod{2},z$ is a NQR
+    \begin{enumerate}
+        \item If $a^Q\equiv1\mod{p}$, return $a^{\frac{Q+1}{2}}\mod{p}$
+        \item for $i\in[0,k-1)$:
+        \item If $a^{2^iQ}\equiv-1\mod{p}$
+              \begin{enumerate}
+                  \item $a'=az^{2^{k-i-1}}\mod{p}$
+                  \item $R=\sqrt{a'}$
+                  \item return $Rz^{-2^{k-i-2}}\mod{p}$
+              \end{enumerate}
+        \item Else $i=i+1$
+    \end{enumerate}
+\end{multicols}
+
+\end{document}
